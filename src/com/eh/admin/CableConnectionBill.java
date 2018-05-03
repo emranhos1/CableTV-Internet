@@ -11,7 +11,10 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
+/**
+ *
+ * @author Md. Emran Hossain
+ */
 public class CableConnectionBill extends javax.swing.JInternalFrame {
 
     private conRs conrs;
@@ -28,7 +31,7 @@ public class CableConnectionBill extends javax.swing.JInternalFrame {
 
         String columnName = " user_card_number ";
         String tableName = " customer_cable ";
-        String whereCondition = " is_active = '1' ";
+        String whereCondition = " is_active = '1' ORDER BY user_card_number ASC ";
         try {
             conrs = SelectQueryDao.selectQueryWithWhereClause(columnName, tableName, whereCondition);
             con = conrs.getCon();
@@ -531,13 +534,6 @@ public class CableConnectionBill extends javax.swing.JInternalFrame {
 
     private void fullPaySaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullPaySaveButtonActionPerformed
 
-//        int due = 0;
-//
-//        if (duePreviousTextField.getText().equals("")) {
-//            due = 0;
-//        } else {
-//            due = Integer.parseInt(duePreviousTextField.getText());
-//        }
         if (UserCardNoComboBox.getSelectedIndex() > 0) {
             if (fullPayMonthComboBox.getSelectedIndex() > 0) {
                 if (!fullPayPaymentTextField.getText().equals("")) {
@@ -576,39 +572,6 @@ public class CableConnectionBill extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Select User Card Id");
         }
-//        System.out.println(userCardNo);
-//        System.out.println(month);
-//        System.out.println(payment);
-//        System.out.println(due);
-
-//        if (UserCardNoComboBox.getSelectedIndex() > 0) {
-//            if (!duePaymentTextField.equals("")) {
-//                if (MonthComboBox.getSelectedIndex() > 0) {
-//
-//                    String tableName = " cable_customer_due ";
-//                    String columnName = " user_card_no, pay, due, month ";
-//                    String values = "'" + userCardNo + "', '" + payment + "', '" + due + "', '" + month + "'";
-//                    try {
-//                        boolean AddDue = InsertQueryDao.insertQueryWithOutWhereClause(tableName, columnName, values);
-//
-//                        if (AddDue) {
-//                            JOptionPane.showMessageDialog(null, "Due Stored");
-//                        } else {
-//                            JOptionPane.showMessageDialog(null, "Error to Stroed");
-//                        }
-//                    } catch (SQLException ex) {
-//                        Logger.getLogger(CableConnectionBill.class.getName()).log(Level.SEVERE, null, ex);
-//                    }
-//                } else {
-//                    JOptionPane.showMessageDialog(null, "Select Month");
-//                }
-//            } else {
-//                JOptionPane.showMessageDialog(null, "Insert Payment");
-//            }
-//        } else {
-//            JOptionPane.showMessageDialog(null, "Select User Card No");
-//        }
-
     }//GEN-LAST:event_fullPaySaveButtonActionPerformed
 
     private void fullClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullClearButtonActionPerformed

@@ -15,7 +15,10 @@ import static com.eh.admin.AdminDashboard.DesktopPanel;
 import com.eh.details.ShowCableCustomerDetails;
 import javax.swing.JFrame;
 import javax.swing.table.TableModel;
-
+/**
+ *
+ * @author Md. Emran Hossain
+ */
 public class AllCableConnection extends javax.swing.JInternalFrame {
 
     private conRs conrs;
@@ -36,7 +39,7 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
 
         String columnName = " user_card_number ";
         String tableName = " customer_cable ";
-        String whereCondition = " is_active = '1' ";
+        String whereCondition = " is_active = '1' ORDER BY user_card_number ASC ";
         try {
             conrs = SelectQueryDao.selectQueryWithWhereClause(columnName, tableName, whereCondition);
             con = conrs.getCon();
@@ -48,14 +51,14 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
                 userCardComboBox.addItem(userNumber);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AllEmployee.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AllCableConnection.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 con.close();
                 pstm.close();
                 rs.close();
             } catch (SQLException ex) {
-                Logger.getLogger(AllEmployee.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AllCableConnection.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -65,7 +68,7 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
 
             String columnName = " * ";
             String tableName = " customer_cable ";
-            String whereCondition = " is_active = '1' ";
+            String whereCondition = " is_active = '1' ORDER BY user_card_number ASC ";
 
             conrs = SelectQueryDao.selectQueryWithWhereClause(columnName, tableName, whereCondition);
             con = conrs.getCon();
@@ -103,7 +106,7 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
                 pstm.close();
                 rs.close();
             } catch (SQLException ex) {
-                Logger.getLogger(AllEmployee.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AllCableConnection.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
@@ -169,12 +172,9 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
         allCableConnection.setText("All Cable Connection");
         allCableConnection.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        monthlyPayText.setEditable(false);
-
         connectionFeeLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         connectionFeeLabel.setText("Connection Fee :");
 
-        connectionFeeText.setEditable(false);
         connectionFeeText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 connectionFeeTextActionPerformed(evt);
@@ -252,7 +252,6 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
         conDateLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         conDateLabel.setText("Connection Date :");
 
-        connectionDateText.setEditable(false);
         connectionDateText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 connectionDateTextActionPerformed(evt);
@@ -464,14 +463,14 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
                 commentArea.setText(comments);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AllEmployee.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AllCableConnection.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 con.close();
                 pstm.close();
                 rs.close();
             } catch (SQLException ex) {
-                Logger.getLogger(AllEmployee.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AllCableConnection.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_userCardComboBoxActionPerformed
@@ -487,12 +486,14 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
                 String phoneNo = phoneText.getText();
                 String email = emailText.getText();
                 String area = areaText.getText();
+                String connectionFee = connectionFeeText.getText();
                 String address = addressArea.getText();
+                String connectionDate = connectionDateText.getText();
+                String monthlyPay = monthlyPayText.getText();
                 String comment = commentArea.getText();
 
                 String tableName = " customer_cable ";
-
-                String columnNameANDcolumnValue = " first_name = '" + firstName + "', last_name='" + lastName + "', phone_no = '" + phoneNo + "', email= '" + email + "', area= '" + area + "', address= '" + address + "', comments='" + comment + "' ";
+                String columnNameANDcolumnValue = " first_name = '" + firstName + "', last_name='" + lastName + "', phone_no = '" + phoneNo + "', email= '" + email + "', area= '" + area + "', address= '" + address + "', connection_date = '"+connectionDate+"', monthly_pay = '"+monthlyPay+"', connection_fee = '"+connectionFee+"', comments='" + comment + "' ";
                 String whereCondition = " user_card_number = '" + comboBox + "'";
 
                 boolean updateCableConnection = UpdateQueryDao.updateQueryWithWhereClause(tableName, columnNameANDcolumnValue, whereCondition);
@@ -508,7 +509,7 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(null, "Not Update");
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(AllEmployee.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AllCableConnection.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Select one Card Number to Close Connection");
@@ -517,7 +518,6 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_UpdateActionPerformed
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
-
         userCardComboBox.setSelectedIndex(0);
         firstNameText.setText("");
         lastNameText.setText("");
@@ -540,7 +540,6 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_addCableConnectionActionPerformed
 
     private void closeConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeConnectionActionPerformed
-
         if (userCardComboBox.getSelectedIndex() > 0) {
             try {
                 String combobox = (String) userCardComboBox.getSelectedItem();
@@ -608,9 +607,8 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
                 sccd.monthlypayText.setText(rs.getString("monthly_pay"));
                 sccd.cableDetailsLabel.setText("Details of : " + rs.getString("first_name") + " " + rs.getString("last_name"));
             }
-
         } catch (SQLException ex) {
-            Logger.getLogger(AllEmployee.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AllCableConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cableTableMouseClicked
 

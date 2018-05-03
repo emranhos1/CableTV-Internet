@@ -13,7 +13,10 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-
+/**
+ *
+ * @author Md. Emran Hossain
+ */
 public class AllEmployee extends javax.swing.JInternalFrame {
 
     private conRs conrs;
@@ -31,12 +34,11 @@ public class AllEmployee extends javax.swing.JInternalFrame {
     public void Update_table() {
         try {
 
-            String columnName = " e.employee_id, e.first_name, e.last_name, e.phone_no, e.email, e.area, e.address, e.join_date, e.starting_salary ";
-            String tableName = " employee e left join admin a ";
-            String onCOndition = " (e.employee_id = a.employee_id) left join role r on(a.role_id = r.role_id) ";
-            String whereCondition = " e.employee_id > '1' ";
+            String columnName = " * ";
+            String tableName = " employee ";
+            String whereCondition = " is_active = '1' ";
 
-            conrs = SelectQueryDao.selectQueryWithJoinWhere(columnName, tableName, onCOndition, whereCondition);
+            conrs = SelectQueryDao.selectQueryWithWhereClause(columnName, tableName, whereCondition);
             con = conrs.getCon();
             pstm = conrs.getPstm();
             rs = conrs.getRs();

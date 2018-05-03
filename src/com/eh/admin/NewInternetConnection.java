@@ -12,7 +12,10 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
+/**
+ *
+ * @author Md. Emran Hossain
+ */
 public class NewInternetConnection extends javax.swing.JInternalFrame {
 
     private int active;

@@ -1,13 +1,20 @@
 package com.eh.admin;
 
 import com.eh.login.Login;
-
+import javax.swing.ImageIcon;
+/**
+ *
+ * @author Md. Emran Hossain
+ */
 public class AdminDashboard extends javax.swing.JFrame {
 
+    private ImageIcon icon = new ImageIcon("image/SKF1.jpg");
     public AdminDashboard() {
         initComponents();
         setLocationRelativeTo(this);
         setResizable(false);
+        setTitle("SKF");
+        setIconImage(icon.getImage());
         
         AllDue ad = new AllDue();
         DesktopPanel.add(ad);
@@ -29,6 +36,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         allCableConnection = new javax.swing.JMenuItem();
         newInternetConnectionMenuItem = new javax.swing.JMenuItem();
         allInternetConnection = new javax.swing.JMenuItem();
+        AllCloseConnection = new javax.swing.JMenuItem();
         MACIPMenu = new javax.swing.JMenu();
         addMacIp = new javax.swing.JMenuItem();
         advanceMenu = new javax.swing.JMenu();
@@ -122,6 +130,14 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
         ConMenu.add(allInternetConnection);
+
+        AllCloseConnection.setText("All Close Connection");
+        AllCloseConnection.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AllCloseConnectionActionPerformed(evt);
+            }
+        });
+        ConMenu.add(AllCloseConnection);
 
         jMenuBar1.add(ConMenu);
 
@@ -232,16 +248,6 @@ public class AdminDashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EmpSalaryMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpSalaryMenuItemActionPerformed
-//        new AddEmployee().dispose();
-//        new AllCableConnection().dispose();
-//        new AllEmployee().dispose();
-//        new AllInternetConnection().dispose();
-//        new CableConnectionBill().dispose();
-//        new EmployeeAdvance().dispose();
-//        new InternetConnectionBill().dispose();
-//        new NewCableConnections().dispose();
-//        new NewInternetConnection().dispose();
-//        new NewMACIP().dispose();
         EmployeeSalary es = new EmployeeSalary();
         DesktopPanel.add(es);
         es.setVisible(true);
@@ -253,21 +259,9 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutMenuMouseClicked
 
     private void LogoutMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutMenuActionPerformed
-//        this.dispose();
-//        new Login().setVisible(true);
     }//GEN-LAST:event_LogoutMenuActionPerformed
 
     private void searchEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchEmpActionPerformed
-//        new AddEmployee().dispose();
-//        new AllCableConnection().dispose();
-//        new EmployeeSalary().dispose();
-//        new AllInternetConnection().dispose();
-//        new CableConnectionBill().dispose();
-//        new EmployeeAdvance().dispose();
-//        new InternetConnectionBill().dispose();
-//        new NewCableConnections().dispose();
-//        new NewInternetConnection().dispose();
-//        new NewMACIP().dispose();
         AllEmployee ae = new AllEmployee();
         DesktopPanel.add(ae);
         ae.setVisible(true);
@@ -275,16 +269,6 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_searchEmpActionPerformed
 
     private void addEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeActionPerformed
-//        new AllEmployee().dispose();
-//        new AllCableConnection().dispose();
-//        new EmployeeSalary().dispose();
-//        new AllInternetConnection().dispose();
-//        new CableConnectionBill().dispose();
-//        new EmployeeAdvance().dispose();
-//        new InternetConnectionBill().dispose();
-//        new NewCableConnections().dispose();
-//        new NewInternetConnection().dispose();
-//        new NewMACIP().dispose();
         AddEmployee ae = new AddEmployee();
         DesktopPanel.add(ae);
         ae.setVisible(true);
@@ -292,16 +276,6 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_addEmployeeActionPerformed
 
     private void newCableConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCableConnectionActionPerformed
-//        new AllEmployee().dispose();
-//        new AllCableConnection().dispose();
-//        new EmployeeSalary().dispose();
-//        new AllInternetConnection().dispose();
-//        new CableConnectionBill().dispose();
-//        new EmployeeAdvance().dispose();
-//        new InternetConnectionBill().dispose();
-//        new AddEmployee().dispose();
-//        new NewInternetConnection().dispose();
-//        new NewMACIP().dispose();
         NewCableConnections ncc = new NewCableConnections();
         DesktopPanel.add(ncc);
         ncc.setVisible(true);
@@ -309,16 +283,6 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_newCableConnectionActionPerformed
 
     private void allCableConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allCableConnectionActionPerformed
-//        new AllEmployee().dispose();
-//        new NewCableConnections().dispose();
-//        new EmployeeSalary().dispose();
-//        new AllInternetConnection().dispose();
-//        new CableConnectionBill().dispose();
-//        new EmployeeAdvance().dispose();
-//        new InternetConnectionBill().dispose();
-//        new AddEmployee().dispose();
-//        new NewInternetConnection().dispose();
-//        new NewMACIP().dispose();
         AllCableConnection acc = new AllCableConnection();
         DesktopPanel.add(acc);
         acc.setVisible(true);
@@ -326,84 +290,30 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_allCableConnectionActionPerformed
 
     private void addMacIpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMacIpActionPerformed
-//        new AllEmployee().dispose();
-//        new NewCableConnections().dispose();
-//        new EmployeeSalary().dispose();
-//        new AllInternetConnection().dispose();
-//        new CableConnectionBill().dispose();
-//        new EmployeeAdvance().dispose();
-//        new InternetConnectionBill().dispose();
-//        new AddEmployee().dispose();
-//        new NewInternetConnection().dispose();
-//        new AllCableConnection().dispose();
         NewMACIP nmi = new NewMACIP();
         DesktopPanel.add(nmi);
         nmi.setVisible(true);
-
     }//GEN-LAST:event_addMacIpActionPerformed
 
     private void newInternetConnectionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newInternetConnectionMenuItemActionPerformed
-//        new AllEmployee().dispose();
-//        new NewCableConnections().dispose();
-//        new EmployeeSalary().dispose();
-//        new AllInternetConnection().dispose();
-//        new CableConnectionBill().dispose();
-//        new EmployeeAdvance().dispose();
-//        new InternetConnectionBill().dispose();
-//        new AddEmployee().dispose();
-//        new NewMACIP().dispose();
-//        new AllCableConnection().dispose();
         NewInternetConnection nic = new NewInternetConnection();
         DesktopPanel.add(nic);
         nic.setVisible(true);
-
     }//GEN-LAST:event_newInternetConnectionMenuItemActionPerformed
 
     private void allInternetConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allInternetConnectionActionPerformed
-//        new AllEmployee().dispose();
-//        new NewCableConnections().dispose();
-//        new EmployeeSalary().dispose();
-//        new NewInternetConnection().dispose();
-//        new CableConnectionBill().dispose();
-//        new EmployeeAdvance().dispose();
-//        new InternetConnectionBill().dispose();
-//        new AddEmployee().dispose();
-//        new NewMACIP().dispose();
-//        new AllCableConnection().dispose();
         AllInternetConnection aic = new AllInternetConnection();
         DesktopPanel.add(aic);
         aic.setVisible(true);
-
     }//GEN-LAST:event_allInternetConnectionActionPerformed
 
     private void advanceMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_advanceMenuMouseClicked
-//        new AllEmployee().dispose();
-//        new NewCableConnections().dispose();
-//        new EmployeeSalary().dispose();
-//        new NewInternetConnection().dispose();
-//        new CableConnectionBill().dispose();
-//        new AllInternetConnection().dispose();
-//        new InternetConnectionBill().dispose();
-//        new AddEmployee().dispose();
-//        new NewMACIP().dispose();
-//        new AllCableConnection().dispose();
         EmployeeAdvance ea = new EmployeeAdvance();
         DesktopPanel.add(ea);
         ea.setVisible(true);
-
     }//GEN-LAST:event_advanceMenuMouseClicked
 
     private void cableConnectionBillMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cableConnectionBillMenuItemActionPerformed
-//        new AllEmployee().dispose();
-//        new NewCableConnections().dispose();
-//        new EmployeeSalary().dispose();
-//        new NewInternetConnection().dispose();
-//        new EmployeeAdvance().dispose();
-//        new AllInternetConnection().dispose();
-//        new InternetConnectionBill().dispose();
-//        new AddEmployee().dispose();
-//        new NewMACIP().dispose();
-//        new AllCableConnection().dispose();
         CableConnectionBill ccb = new CableConnectionBill();
         DesktopPanel.add(ccb);
         ccb.setVisible(true);
@@ -413,20 +323,9 @@ public class AdminDashboard extends javax.swing.JFrame {
         InternetConnectionBill icb = new InternetConnectionBill();
         DesktopPanel.add(icb);
         icb.setVisible(true);
-//        new AllEmployee().dispose();
-//        new NewCableConnections().dispose();
-//        new EmployeeSalary().dispose();
-//        new NewInternetConnection().dispose();
-//        new EmployeeAdvance().dispose();
-//        new AllInternetConnection().dispose();
-//        new CableConnectionBill().dispose();
-//        new AddEmployee().dispose();
-//        new NewMACIP().dispose();
-//        new AllCableConnection().dispose();
     }//GEN-LAST:event_internatconnectionBillMenuItemActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        
         Inventory i = new Inventory();
         DesktopPanel.add(i);
         i.setVisible(true);
@@ -439,11 +338,16 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void HomeMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMenuMouseClicked
-        
         AllDue ad = new AllDue();
         DesktopPanel.add(ad);
         ad.setVisible(true);
     }//GEN-LAST:event_HomeMenuMouseClicked
+
+    private void AllCloseConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllCloseConnectionActionPerformed
+        AllCloseConnection acc = new AllCloseConnection();
+        DesktopPanel.add(acc);
+        acc.setVisible(true);
+    }//GEN-LAST:event_AllCloseConnectionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -481,6 +385,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem AllCloseConnection;
     private javax.swing.JMenu ConMenu;
     public static javax.swing.JPanel DesktopPanel;
     private javax.swing.JMenu EmpMenu;

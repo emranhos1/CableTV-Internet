@@ -13,6 +13,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
+/**
+ *
+ * @author Md. Emran Hossain
+ */
 public class AddEmployee extends javax.swing.JInternalFrame {
 
     private File file;

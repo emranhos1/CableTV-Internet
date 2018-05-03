@@ -11,7 +11,10 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
+/**
+ *
+ * @author Md. Emran Hossain
+ */
 public class InternetConnectionBill extends javax.swing.JInternalFrame {
 
     private conRs conrs;
@@ -28,7 +31,7 @@ public class InternetConnectionBill extends javax.swing.JInternalFrame {
 
         String columnName = " user_id ";
         String tableName = " customer_internet ";
-        String whereCondition = " is_active = '1' ";
+        String whereCondition = " is_active = '1' ORDER BY user_id ASC ";
         try {
             conrs = SelectQueryDao.selectQueryWithWhereClause(columnName, tableName, whereCondition);
             con = conrs.getCon();

@@ -5,14 +5,21 @@ import com.eh.dao.UpdateQueryDao;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
+/**
+ *
+ * @author Md. Emran Hossain
+ */
 public class ShowEmployeeDetails extends javax.swing.JFrame {
 
+    private ImageIcon icon = new ImageIcon("image/SKF1.jpg");
     public ShowEmployeeDetails() {
         initComponents();
         setLocationRelativeTo(this);
         setResizable(false);
+        setTitle("SKF");
+        setIconImage(icon.getImage());
     }
 
     @SuppressWarnings("unchecked")
@@ -63,8 +70,6 @@ public class ShowEmployeeDetails extends javax.swing.JFrame {
 
         nidLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         nidLabel.setText("NID No :");
-
-        startingsalaryTextField.setEditable(false);
 
         detailsLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         detailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -141,15 +146,14 @@ public class ShowEmployeeDetails extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(fnameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(142, 142, 142)
-                                        .addComponent(photoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(21, 21, 21))))
+                                        .addComponent(photoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(94, 94, 94)
                                 .addComponent(detailsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(302, 302, 302)
                         .addComponent(updateButton)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,9 +224,10 @@ public class ShowEmployeeDetails extends javax.swing.JFrame {
             String area = areaTextField.getText();
             String nidId = nidTextField.getText();
             String address = addressTextArea.getText();
+            String salary = startingsalaryTextField.getText();
 
             String tableName = " employee ";
-            String columnNameANDcolumnValue = " first_name = '" + firstName + "', last_name='" + lastName + "', phone_no = '" + phoneNo + "', email= '" + email + "', nid_no='" + nidId + "', address= '" + address + "' ";
+            String columnNameANDcolumnValue = " first_name = '" + firstName + "', last_name='" + lastName + "', phone_no = '" + phoneNo + "', email= '" + email + "', nid_no='" + nidId + "', address= '" + address + "', starting_salary = '"+salary+"' ";
             String whereCondition = " employee_id = '" + empId + "'";
 
             boolean updateEmployee = UpdateQueryDao.updateQueryWithWhereClause(tableName, columnNameANDcolumnValue, whereCondition);

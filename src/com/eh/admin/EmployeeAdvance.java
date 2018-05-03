@@ -10,7 +10,10 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
+/**
+ *
+ * @author Md. Emran Hossain
+ */
 public class EmployeeAdvance extends javax.swing.JInternalFrame {
 
     private conRs conrs;
@@ -27,7 +30,7 @@ public class EmployeeAdvance extends javax.swing.JInternalFrame {
 
         String columnName = " * ";
         String tableName = " employee ";
-        String whereCondition = " is_active = '1' ";
+        String whereCondition = " is_active = '1' ORDER BY phone_no ASC ";
         try {
             conrs = SelectQueryDao.selectQueryWithWhereClause(columnName, tableName, whereCondition);
             con = conrs.getCon();

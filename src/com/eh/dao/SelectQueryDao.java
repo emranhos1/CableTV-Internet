@@ -63,4 +63,13 @@ public class SelectQueryDao {
 //        System.out.println("Select " + columnName + " from " + tableName + " on " + onCondition);
         return conrs;
     }
+    
+    public static conRs selectQueryWithGroupBy(String columnName, String tableName, String groupBy) throws SQLException {
+        con = db.myConn();
+        pstm = con.prepareStatement("Select " + columnName + " from " + tableName + " GROUP BY " + groupBy);
+        rs = pstm.executeQuery();
+        conRs conrs = new conRs(con, rs, pstm);
+//        System.out.println("Select " + columnName + " from " + tableName + " on " + onCondition);
+        return conrs;
+    }
 }

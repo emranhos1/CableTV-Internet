@@ -16,6 +16,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
+/**
+ *
+ * @author Md. Emran Hossain
+ */
 public class AllInternetConnection extends javax.swing.JInternalFrame {
 
     private conRs conrs;
@@ -36,7 +40,7 @@ public class AllInternetConnection extends javax.swing.JInternalFrame {
 
         String columnName = " user_id ";
         String tableName = " customer_internet ";
-        String whereCondition = " is_active = '1' ";
+        String whereCondition = " is_active = '1' ORDER BY user_id ASC ";
         try {
             conrs = SelectQueryDao.selectQueryWithWhereClause(columnName, tableName, whereCondition);
             con = conrs.getCon();
@@ -65,7 +69,7 @@ public class AllInternetConnection extends javax.swing.JInternalFrame {
 
             String columnName = " * ";
             String tableName = " customer_internet ";
-            String whereCondition = " is_active = '1' ";
+            String whereCondition = " is_active = '1' ORDER BY user_id ASC ";
 
             conrs = SelectQueryDao.selectQueryWithWhereClause(columnName, tableName, whereCondition);
             con = conrs.getCon();
@@ -167,15 +171,12 @@ public class AllInternetConnection extends javax.swing.JInternalFrame {
         arealLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         arealLabel.setText("Area :");
 
-        monthlyPayText.setEditable(false);
-
         connectionFeeLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         connectionFeeLabel.setText("Connection Fee :");
 
         addressLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         addressLabel.setText("Address :");
 
-        connectionFeeText.setEditable(false);
         connectionFeeText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 connectionFeeTextActionPerformed(evt);
@@ -199,7 +200,6 @@ public class AllInternetConnection extends javax.swing.JInternalFrame {
         conDateLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         conDateLabel.setText("Connection Date :");
 
-        connectionDateText.setEditable(false);
         connectionDateText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 connectionDateTextActionPerformed(evt);
@@ -577,19 +577,21 @@ public class AllInternetConnection extends javax.swing.JInternalFrame {
                 String phoneNo = phoneText.getText();
                 String email = emailText.getText();
                 String area = areaText.getText();
+                String connectionFee = connectionFeeText.getText();
                 String address = addressArea.getText();
+                String connectionDate = connectionDateText.getText();
+                String monthlyPay = monthlyPayText.getText();
                 String comment = commentArea.getText();
 
                 String tableName = " customer_internet ";
-
-                String columnNameANDcolumnValue = " first_name = '" + firstName + "', last_name='" + lastName + "', phone_no = '" + phoneNo + "', email= '" + email + "', area= '" + area + "', address= '" + address + "', comments='" + comment + "' ";
+                String columnNameANDcolumnValue = " first_name = '" + firstName + "', last_name='" + lastName + "', phone_no = '" + phoneNo + "', email= '" + email + "', area= '" + area + "', address= '" + address + "', connection_date = '" + connectionDate + "', monthly_pay = '" + monthlyPay + "', connection_fee = '" + connectionFee + "', comments='" + comment + "' ";
                 String whereCondition = " user_id = '" + userId + "'";
 
                 boolean updateCableConnection = UpdateQueryDao.updateQueryWithWhereClause(tableName, columnNameANDcolumnValue, whereCondition);
 
                 if (updateCableConnection) {
                     JOptionPane.showMessageDialog(null, "Update Successfully");
-                    
+
                     DefaultTableModel model = (DefaultTableModel) internetTable.getModel();
                     model.setRowCount(0);
                     Update_table();

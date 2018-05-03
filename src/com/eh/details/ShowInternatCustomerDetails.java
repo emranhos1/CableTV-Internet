@@ -4,14 +4,21 @@ import com.eh.dao.UpdateQueryDao;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
+/**
+ *
+ * @author Md. Emran Hossain
+ */
 public class ShowInternatCustomerDetails extends javax.swing.JFrame {
 
+    private ImageIcon icon = new ImageIcon("image/SKF1.jpg");
     public ShowInternatCustomerDetails() {
         initComponents();
         setLocationRelativeTo(this);
         setResizable(false);
+        setTitle("SKF");
+        setIconImage(icon.getImage());
     }
 
     @SuppressWarnings("unchecked")

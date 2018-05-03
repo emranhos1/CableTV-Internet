@@ -12,7 +12,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+/**
+ *
+ * @author Md. Emran Hossain
+ */
 public class Inventory extends javax.swing.JInternalFrame {
 
     private conRs conrs;
@@ -31,7 +34,7 @@ public class Inventory extends javax.swing.JInternalFrame {
     public void loadProductNameCombo() {
 
         String columnName = " product_id ";
-        String tableName = " product ";
+        String tableName = " product ORDER BY product_id ASC ";
         try {
             conrs = SelectQueryDao.selectQueryWithOutWhereClause(columnName, tableName);
             con = conrs.getCon();
@@ -59,7 +62,7 @@ public class Inventory extends javax.swing.JInternalFrame {
 
         String columnName = " first_name, last_name ";
         String tableName = " employee ";
-        String whereCondition = " is_active = '1'";
+        String whereCondition = " is_active = '1' ORDER BY employee_id ASC ";
         try {
             conrs = SelectQueryDao.selectQueryWithWhereClause(columnName, tableName, whereCondition);
             con = conrs.getCon();
@@ -89,7 +92,7 @@ public class Inventory extends javax.swing.JInternalFrame {
         try {
 
             String columnName = " * ";
-            String tableName = " product ";
+            String tableName = " product ORDER BY product_id ASC";
 
             conrs = SelectQueryDao.selectQueryWithOutWhereClause(columnName, tableName);
             con = conrs.getCon();

@@ -9,21 +9,27 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+/**
+ *
+ * @author Md. Emran Hossain
+ */
 public class ShowAvailableMAC extends javax.swing.JFrame {
 
     private conRs conrs;
     private Connection con;
     private PreparedStatement pstm;
     private ResultSet rs;
-
+    private ImageIcon icon = new ImageIcon("image/SKF1.jpg");
     public ShowAvailableMAC() {
         initComponents();
         UpdateMACtable();
         setLocationRelativeTo(this);
         setResizable(false);
+        setTitle("SKF");
+        setIconImage(icon.getImage());
     }
 
     public void UpdateMACtable() {

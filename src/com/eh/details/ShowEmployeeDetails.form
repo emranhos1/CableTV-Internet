@@ -66,7 +66,6 @@
                                       <Component id="fnameTextField" min="-2" pref="200" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
                                       <Component id="photoLabel" min="-2" pref="165" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -81,7 +80,7 @@
                       <Component id="updateButton" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="54" max="32767" attributes="0"/>
+              <EmptySpace pref="60" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -213,9 +212,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="startingsalaryTextField">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>

@@ -9,8 +9,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
+/**
+ *
+ * @author Md. Emran Hossain
+ */
 public class BillGenerateCable extends javax.swing.JFrame {
 
     private conRs conrs;
@@ -27,18 +31,21 @@ public class BillGenerateCable extends javax.swing.JFrame {
     private String connectionDate;
     private String monthlyPay;
 
+    private ImageIcon icon = new ImageIcon("image/SKF1.jpg");
     public BillGenerateCable() {
         initComponents();
         loadUserCardIdCombo();
         setLocationRelativeTo(this);
         setResizable(false);
+        setTitle("SKF");
+        setIconImage(icon.getImage());
     }
 
     public void loadUserCardIdCombo() {
 
         String columnName = " user_card_number ";
         String tableName = " customer_cable ";
-        String whereCondition = " is_active = '1' ";
+        String whereCondition = " is_active = '1' ORDER BY user_card_number ASC ";
         try {
             conrs = SelectQueryDao.selectQueryWithWhereClause(columnName, tableName, whereCondition);
             con = conrs.getCon();

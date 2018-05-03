@@ -236,9 +236,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="monthlyPayText">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="areaText">
     </Component>
@@ -259,9 +256,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="connectionFeeText">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="connectionFeeTextActionPerformed"/>
       </Events>
@@ -321,9 +315,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="connectionDateText">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="connectionDateTextActionPerformed"/>
       </Events>
