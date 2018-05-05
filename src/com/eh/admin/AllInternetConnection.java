@@ -34,11 +34,25 @@ public class AllInternetConnection extends javax.swing.JInternalFrame {
         Update_table();
     }
 
+    public void clearAll() {
+        useridComboBox.setSelectedIndex(0);
+        firstNameText.setText("");
+        lastNameText.setText("");
+        phoneText.setText("");
+        emailText.setText("");
+        areaText.setText("");
+        connectionFeeText.setText("");
+        addressArea.setText("");
+        connectionDateText.setText("");
+        monthlyPayText.setText("");
+        billingTypeText.setText("");
+        commentArea.setText("");
+    }
     ShowInternatCustomerDetails sicd = new ShowInternatCustomerDetails();
 
     public void loadUserNIdCombo() {
 
-        String columnName = " user_id ";
+        String columnName = " concat(user_id,'~[',first_name,' ', last_name,']') as user_id ";
         String tableName = " customer_internet ";
         String whereCondition = " is_active = '1' ORDER BY user_id ASC ";
         try {
@@ -52,14 +66,14 @@ public class AllInternetConnection extends javax.swing.JInternalFrame {
                 useridComboBox.addItem(userid);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AllEmployee.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AllInternetConnection.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 con.close();
                 pstm.close();
                 rs.close();
             } catch (SQLException ex) {
-                Logger.getLogger(AllEmployee.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AllInternetConnection.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -160,6 +174,12 @@ public class AllInternetConnection extends javax.swing.JInternalFrame {
         allInternateConnection.setText("All Internet Connection");
         allInternateConnection.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        phoneText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                phoneTextKeyTyped(evt);
+            }
+        });
+
         billingTypeLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         billingTypeLabel.setText("Billing Type :");
 
@@ -171,6 +191,12 @@ public class AllInternetConnection extends javax.swing.JInternalFrame {
         arealLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         arealLabel.setText("Area :");
 
+        monthlyPayText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                monthlyPayTextKeyTyped(evt);
+            }
+        });
+
         connectionFeeLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         connectionFeeLabel.setText("Connection Fee :");
 
@@ -180,6 +206,11 @@ public class AllInternetConnection extends javax.swing.JInternalFrame {
         connectionFeeText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 connectionFeeTextActionPerformed(evt);
+            }
+        });
+        connectionFeeText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                connectionFeeTextKeyTyped(evt);
             }
         });
 
@@ -416,7 +447,8 @@ public class AllInternetConnection extends javax.swing.JInternalFrame {
 
     private void useridComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useridComboBoxActionPerformed
 
-        String comboBox = useridComboBox.getSelectedItem().toString();
+        String[] comboBox1 = useridComboBox.getSelectedItem().toString().split("~");
+        String comboBox = comboBox1[0];
 
         String columnName = " * ";
         String tableName = " customer_internet ";
@@ -459,14 +491,14 @@ public class AllInternetConnection extends javax.swing.JInternalFrame {
                 commentArea.setText(comments);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AllEmployee.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AllInternetConnection.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 con.close();
                 pstm.close();
                 rs.close();
             } catch (SQLException ex) {
-                Logger.getLogger(AllEmployee.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AllInternetConnection.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_useridComboBoxActionPerformed
@@ -475,17 +507,18 @@ public class AllInternetConnection extends javax.swing.JInternalFrame {
 
         if (useridComboBox.getSelectedIndex() > 0) {
             try {
-                String combobox = (String) useridComboBox.getSelectedItem();
+                String[] comboBox1 = useridComboBox.getSelectedItem().toString().split("~");
+                String comboBox = comboBox1[0];
 
                 String tableName = " customer_internet ";
-
                 String columnNameANDcolumnValue = " is_active = '0' ";
-                String whereCondition = " user_id = '" + combobox + "'";
+                String whereCondition = " user_id = '" + comboBox + "'";
 
                 boolean closeCableConnection = UpdateQueryDao.updateQueryWithWhereClause(tableName, columnNameANDcolumnValue, whereCondition);
 
                 if (closeCableConnection) {
                     JOptionPane.showMessageDialog(null, "Connection Closed");
+                    clearAll();
                     DefaultTableModel model = (DefaultTableModel) internetTable.getModel();
                     model.setRowCount(0);
                     Update_table();
@@ -493,7 +526,7 @@ public class AllInternetConnection extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(null, "Not Closed");
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(AllCableConnection.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AllInternetConnection.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Select User Id for Connection Close");
@@ -501,19 +534,7 @@ public class AllInternetConnection extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_closeConnectionActionPerformed
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
-
-        useridComboBox.setSelectedIndex(0);
-        firstNameText.setText("");
-        lastNameText.setText("");
-        phoneText.setText("");
-        emailText.setText("");
-        areaText.setText("");
-        connectionFeeText.setText("");
-        addressArea.setText("");
-        connectionDateText.setText("");
-        monthlyPayText.setText("");
-        billingTypeText.setText("");
-        commentArea.setText("");
+        clearAll();
     }//GEN-LAST:event_resetActionPerformed
 
     private void addCableConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCableConnectionActionPerformed
@@ -571,7 +592,8 @@ public class AllInternetConnection extends javax.swing.JInternalFrame {
 
         if (useridComboBox.getSelectedIndex() > 0) {
             try {
-                String userId = (String) useridComboBox.getSelectedItem();
+                String[] comboBox1 = useridComboBox.getSelectedItem().toString().split("~");
+                String comboBox = comboBox1[0];
                 String firstName = firstNameText.getText();
                 String lastName = lastNameText.getText();
                 String phoneNo = phoneText.getText();
@@ -585,13 +607,13 @@ public class AllInternetConnection extends javax.swing.JInternalFrame {
 
                 String tableName = " customer_internet ";
                 String columnNameANDcolumnValue = " first_name = '" + firstName + "', last_name='" + lastName + "', phone_no = '" + phoneNo + "', email= '" + email + "', area= '" + area + "', address= '" + address + "', connection_date = '" + connectionDate + "', monthly_pay = '" + monthlyPay + "', connection_fee = '" + connectionFee + "', comments='" + comment + "' ";
-                String whereCondition = " user_id = '" + userId + "'";
+                String whereCondition = " user_id = '" + comboBox + "'";
 
                 boolean updateCableConnection = UpdateQueryDao.updateQueryWithWhereClause(tableName, columnNameANDcolumnValue, whereCondition);
 
                 if (updateCableConnection) {
                     JOptionPane.showMessageDialog(null, "Update Successfully");
-
+                    clearAll();
                     DefaultTableModel model = (DefaultTableModel) internetTable.getModel();
                     model.setRowCount(0);
                     Update_table();
@@ -599,12 +621,36 @@ public class AllInternetConnection extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(null, "Not Update");
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(ShowInternatCustomerDetails.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AllInternetConnection.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Select User Id for Update");
         }
     }//GEN-LAST:event_updateActionPerformed
+
+    private void phoneTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneTextKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_phoneTextKeyTyped
+
+    private void connectionFeeTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_connectionFeeTextKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_connectionFeeTextKeyTyped
+
+    private void monthlyPayTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_monthlyPayTextKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_monthlyPayTextKeyTyped
+    private boolean isNumber(char ch) {
+        return ch >= '0' && ch <= '9';
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

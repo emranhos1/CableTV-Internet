@@ -194,6 +194,9 @@
     <Component class="javax.swing.JTextField" name="lName">
     </Component>
     <Component class="javax.swing.JTextField" name="phonetext">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="phonetextKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="PhoneLabel">
       <Properties>
@@ -335,6 +338,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="nidText">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="nidTextKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="startingSalaryLabel">
       <Properties>
@@ -345,6 +351,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="salaryText">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="salaryTextKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="fName">
     </Component>

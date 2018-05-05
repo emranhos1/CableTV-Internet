@@ -25,6 +25,14 @@ public class EmployeeAdvance extends javax.swing.JInternalFrame {
         initComponents();
         loadPhoneNoCombo();
     }
+    
+    public void clearAll(){
+        employeePhoneComboBox.setSelectedIndex(0);
+        employeeIdTextField.setText("");
+        nameTextField.setText("");
+        advanceTextField.setText("");
+        purposeTextArea.setText("");
+    }
 
     public void loadPhoneNoCombo() {
 
@@ -42,14 +50,14 @@ public class EmployeeAdvance extends javax.swing.JInternalFrame {
                 employeePhoneComboBox.addItem(phoneNo);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AllEmployee.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EmployeeAdvance.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 con.close();
                 pstm.close();
                 rs.close();
             } catch (SQLException ex) {
-                Logger.getLogger(AllEmployee.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(EmployeeAdvance.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -202,14 +210,14 @@ public class EmployeeAdvance extends javax.swing.JInternalFrame {
                 nameTextField.setText(first_name + " " + last_name);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AllEmployee.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EmployeeAdvance.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 con.close();
                 pstm.close();
                 rs.close();
             } catch (SQLException ex) {
-                Logger.getLogger(AllEmployee.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(EmployeeAdvance.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_employeePhoneComboBoxActionPerformed
@@ -230,6 +238,7 @@ public class EmployeeAdvance extends javax.swing.JInternalFrame {
                         boolean addAdvance = InsertQueryDao.insertQueryWithOutWhereClause(tableName, columnName, values);
                         if (addAdvance) {
                             JOptionPane.showMessageDialog(null, "Advance Insert Successfully");
+                            clearAll();
                         } else {
                             JOptionPane.showMessageDialog(null, "Advance not Insert");
                         }
@@ -245,8 +254,6 @@ public class EmployeeAdvance extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Select Employee Phone No");
         }
-        advanceTextField.setText("");
-        purposeTextArea.setText("");
     }//GEN-LAST:event_submitButtonActionPerformed
 
 

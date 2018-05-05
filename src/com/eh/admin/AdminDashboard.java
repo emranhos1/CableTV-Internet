@@ -48,6 +48,8 @@ public class AdminDashboard extends javax.swing.JFrame {
         inventoryMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        otherIncomeMenuItem = new javax.swing.JMenuItem();
+        otherCostMenuItem = new javax.swing.JMenuItem();
         LogoutMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -194,6 +196,11 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         ReportMenu.setText("Report");
         ReportMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ReportMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ReportMenuMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(ReportMenu);
 
         inventoryMenu.setText("Inventory");
@@ -214,6 +221,22 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
         inventoryMenu.add(jMenuItem2);
+
+        otherIncomeMenuItem.setText("Other Income");
+        otherIncomeMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherIncomeMenuItemActionPerformed(evt);
+            }
+        });
+        inventoryMenu.add(otherIncomeMenuItem);
+
+        otherCostMenuItem.setText("Other Cost");
+        otherCostMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherCostMenuItemActionPerformed(evt);
+            }
+        });
+        inventoryMenu.add(otherCostMenuItem);
 
         jMenuBar1.add(inventoryMenu);
 
@@ -349,6 +372,24 @@ public class AdminDashboard extends javax.swing.JFrame {
         acc.setVisible(true);
     }//GEN-LAST:event_AllCloseConnectionActionPerformed
 
+    private void otherCostMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherCostMenuItemActionPerformed
+        OtherCosts oc = new OtherCosts();
+        DesktopPanel.add(oc);
+        oc.setVisible(true);
+    }//GEN-LAST:event_otherCostMenuItemActionPerformed
+
+    private void otherIncomeMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherIncomeMenuItemActionPerformed
+        OtherIncome oi = new OtherIncome();
+        DesktopPanel.add(oi);
+        oi.setVisible(true);
+    }//GEN-LAST:event_otherIncomeMenuItemActionPerformed
+
+    private void ReportMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReportMenuMouseClicked
+        Inventory i = new Inventory();
+        DesktopPanel.add(i);
+        i.setVisible(true);
+    }//GEN-LAST:event_ReportMenuMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -408,6 +449,8 @@ public class AdminDashboard extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem newCableConnection;
     private javax.swing.JMenuItem newInternetConnectionMenuItem;
+    private javax.swing.JMenuItem otherCostMenuItem;
+    private javax.swing.JMenuItem otherIncomeMenuItem;
     private javax.swing.JMenuItem searchEmp;
     // End of variables declaration//GEN-END:variables
 }

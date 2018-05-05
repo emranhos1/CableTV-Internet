@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Md. Emran Hossain
@@ -31,9 +32,16 @@ public class AllCloseConnection extends javax.swing.JInternalFrame {
         UpdateCableTable();
     }
 
+    public void clearAll() {
+        userCardComboBox.setSelectedIndex(0);
+        cableCustomerNameTextField.setText("");
+        cablePhoneNoTextField.setText("");
+        cableReconnectionFeeTextField.setText("");
+    }
+
     public void loadUserNumberCombo() {
 
-        String columnName = " user_card_number ";
+        String columnName = " concat(user_card_number,'~[',first_name,' ', last_name,']') as user_card_number ";
         String tableName = " customer_cable ";
         String whereCondition = " is_active = '0' ORDER BY user_card_number ASC ";
         try {
@@ -61,7 +69,7 @@ public class AllCloseConnection extends javax.swing.JInternalFrame {
 
     public void loadUserIdCombo() {
 
-        String columnName = " user_id ";
+        String columnName = " concat(user_id,'~[',first_name,' ', last_name,']') as user_id ";
         String tableName = " customer_internet ";
         String whereCondition = " is_active = '0' ORDER BY user_id ASC ";
         try {
@@ -237,8 +245,12 @@ public class AllCloseConnection extends javax.swing.JInternalFrame {
         cableCusNameLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cableCusNameLabel.setText("Customer Name :");
 
+        cableCustomerNameTextField.setEditable(false);
+
         cablePhoneNoLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cablePhoneNoLabel.setText("Customer Phone :");
+
+        cablePhoneNoTextField.setEditable(false);
 
         cableReconnectionButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cableReconnectionButton.setText("Reconnect");
@@ -261,11 +273,14 @@ public class AllCloseConnection extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("Customer Name :");
 
+        internetCustomerNameTextField.setEditable(false);
         internetCustomerNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 internetCustomerNameTextFieldActionPerformed(evt);
             }
         });
+
+        internetPhoneNoTextField.setEditable(false);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Customer Phone :");
@@ -288,48 +303,12 @@ public class AllCloseConnection extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(97, 97, 97)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(reconnectionFeeLabel)
-                    .addComponent(cableCusNameLabel)
-                    .addComponent(cableUserCardNoLabel)
-                    .addComponent(cablePhoneNoLabel))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(userCardComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cableCustomerNameTextField)
-                            .addComponent(cablePhoneNoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cableReconnectionFeeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(intReconFeeLabel)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(userIdComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(internetCustomerNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(internetPhoneNoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(intreconnectionFeeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(91, 91, 91))
             .addGroup(layout.createSequentialGroup()
                 .addGap(280, 280, 280)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -340,6 +319,40 @@ public class AllCloseConnection extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(internetReconnectionButton)
                 .addGap(137, 137, 137))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(reconnectionFeeLabel)
+                            .addComponent(cableCusNameLabel)
+                            .addComponent(cableUserCardNoLabel)
+                            .addComponent(cablePhoneNoLabel))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cableReconnectionFeeTextField)
+                            .addComponent(userCardComboBox, 0, 150, Short.MAX_VALUE)
+                            .addComponent(cableCustomerNameTextField)
+                            .addComponent(cablePhoneNoTextField))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(intReconFeeLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(userIdComboBox, 0, 150, Short.MAX_VALUE)
+                            .addComponent(internetCustomerNameTextField)
+                            .addComponent(internetPhoneNoTextField)
+                            .addComponent(intreconnectionFeeTextField)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,7 +393,7 @@ public class AllCloseConnection extends javax.swing.JInternalFrame {
                     .addComponent(internetReconnectionButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -394,7 +407,8 @@ public class AllCloseConnection extends javax.swing.JInternalFrame {
 
     private void userCardComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userCardComboBoxActionPerformed
 
-        String comboBox = userCardComboBox.getSelectedItem().toString();
+        String[] comboBox1 = userCardComboBox.getSelectedItem().toString().split("~");
+	String comboBox  = comboBox1[0];
 
         String columnName = " * ";
         String tableName = " customer_cable ";
@@ -429,7 +443,8 @@ public class AllCloseConnection extends javax.swing.JInternalFrame {
 
     private void userIdComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userIdComboBoxActionPerformed
 
-        String comboBox = userIdComboBox.getSelectedItem().toString();
+        String[] comboBox1 = userIdComboBox.getSelectedItem().toString().split("~");
+	String comboBox  = comboBox1[0];
 
         String columnName = " * ";
         String tableName = " customer_internet ";
@@ -468,22 +483,24 @@ public class AllCloseConnection extends javax.swing.JInternalFrame {
             String reconnectionFee = cableReconnectionFeeTextField.getText();
             if (!reconnectionFee.equals("")) {
                 try {
-                    String combobox = (String) userCardComboBox.getSelectedItem();
+                    String[] comboBox1 = userCardComboBox.getSelectedItem().toString().split("~");
+                    String comboBox = comboBox1[0];
 
                     String tableName = " customer_cable ";
                     String columnNameANDcolumnValue = " is_active = '1' ";
-                    String whereCondition = " user_card_number = '" + combobox + "'";
+                    String whereCondition = " user_card_number = '" + comboBox + "'";
 
                     boolean reconnectCableConnection = UpdateQueryDao.updateQueryWithWhereClause(tableName, columnNameANDcolumnValue, whereCondition);
 
                     String tableN = " customer_cable_reconnection ";
                     String columnName = " reconnection_fee, user_card_no, reconnection_date ";
-                    String values = "'" + reconnectionFee + "', '" + combobox + "', now() ";
+                    String values = "'" + reconnectionFee + "', '" + comboBox + "', now() ";
                     boolean addReConnection = InsertQueryDao.insertQueryWithOutWhereClause(tableN, columnName, values);
 
                     if (reconnectCableConnection) {
                         if (addReConnection) {
                             JOptionPane.showMessageDialog(null, "Connection ReConnected");
+                            clearAll();
                             DefaultTableModel model = (DefaultTableModel) cableTable.getModel();
                             model.setRowCount(0);
                             UpdateCableTable();
@@ -510,23 +527,25 @@ public class AllCloseConnection extends javax.swing.JInternalFrame {
             String reconnectionFee = intreconnectionFeeTextField.getText();
             if (!reconnectionFee.equals("")) {
                 try {
-                    String combobox = (String) userIdComboBox.getSelectedItem();
+                    String[] comboBox1 = userIdComboBox.getSelectedItem().toString().split("~");
+                    String comboBox = comboBox1[0];
 
                     String tableName = " customer_internet ";
 
                     String columnNameANDcolumnValue = " is_active = '1' ";
-                    String whereCondition = " user_id = '" + combobox + "'";
+                    String whereCondition = " user_id = '" + comboBox + "'";
 
                     boolean reconnectInternetConnection = UpdateQueryDao.updateQueryWithWhereClause(tableName, columnNameANDcolumnValue, whereCondition);
 
                     String tableN = " customer_internet_reconnection ";
                     String columnName = " reconnection_fee, user_id, reconnection_date ";
-                    String values = "'" + reconnectionFee + "', '" + combobox + "', now() ";
+                    String values = "'" + reconnectionFee + "', '" + comboBox + "', now() ";
                     boolean addReConnection = InsertQueryDao.insertQueryWithOutWhereClause(tableN, columnName, values);
 
                     if (reconnectInternetConnection) {
                         if (addReConnection) {
                             JOptionPane.showMessageDialog(null, "Connection Reconnected");
+                            clearAll();
                             DefaultTableModel model = (DefaultTableModel) internetTable.getModel();
                             model.setRowCount(0);
                             UpdateInternetTable();

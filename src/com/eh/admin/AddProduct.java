@@ -16,6 +16,11 @@ public class AddProduct extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public void clearAll(){
+        productNameTextField.setText("");
+        productBrandTextField.setText("");
+        typeComboBox.setSelectedIndex(0);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -137,6 +142,7 @@ public class AddProduct extends javax.swing.JInternalFrame {
                             JOptionPane.showMessageDialog(null, "Product Not Inserted!");
                         } else {
                             JOptionPane.showMessageDialog(null, "Product Inserted Successfully");
+                            clearAll();
                         }
                     } catch (SQLException ex) {
                         Logger.getLogger(AddProduct.class.getName()).log(Level.SEVERE, null, ex);
@@ -155,9 +161,7 @@ public class AddProduct extends javax.swing.JInternalFrame {
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
 
-        productNameTextField.setText("");
-        productBrandTextField.setText("");
-        typeComboBox.setSelectedIndex(0);
+        clearAll();
     }//GEN-LAST:event_resetButtonActionPerformed
 
 

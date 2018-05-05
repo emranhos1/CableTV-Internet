@@ -45,6 +45,19 @@ public class AddEmployee extends javax.swing.JInternalFrame {
         initComponents();
         setResizable(true);
     }
+    
+    public void clearAll(){
+        fName.setText("");
+        lName.setText("");
+        phonetext.setText("");
+        emailText.setText("");
+        areaComboBox.setSelectedIndex(0);
+        nidText.setText("");
+        addressArea.setText("");
+        salaryText.setText("");
+        photoText.setText("");
+        imageLabal.setIcon(null);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -94,6 +107,12 @@ public class AddEmployee extends javax.swing.JInternalFrame {
 
         LNameLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         LNameLabel.setText("Last Name :");
+
+        phonetext.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                phonetextKeyTyped(evt);
+            }
+        });
 
         PhoneLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         PhoneLabel.setText("Phone No :");
@@ -158,8 +177,20 @@ public class AddEmployee extends javax.swing.JInternalFrame {
         nidLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         nidLabel.setText("NID No :");
 
+        nidText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nidTextKeyTyped(evt);
+            }
+        });
+
         startingSalaryLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         startingSalaryLabel.setText("Starting Salary :");
+
+        salaryText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                salaryTextKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -334,6 +365,7 @@ public class AddEmployee extends javax.swing.JInternalFrame {
                                                             JOptionPane.showMessageDialog(null, "Employee Data Not Inserted!");
                                                         } else {
                                                             JOptionPane.showMessageDialog(null, "Employee Data Inserted Successfully");
+                                                            clearAll();
                                                         }
                                                     }
                                                 } catch (SQLException | FileNotFoundException ex) {
@@ -372,19 +404,33 @@ public class AddEmployee extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_saveActionPerformed
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
-        fName.setText("");
-        lName.setText("");
-        phonetext.setText("");
-        emailText.setText("");
-        areaComboBox.setSelectedIndex(0);
-        nidText.setText("");
-        addressArea.setText("");
-        salaryText.setText("");
-        photoText.setText("");
-        imageLabal.setIcon(null);
+        clearAll();
     }//GEN-LAST:event_resetActionPerformed
 
+    private void phonetextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phonetextKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_phonetextKeyTyped
 
+    private void nidTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nidTextKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_nidTextKeyTyped
+
+    private void salaryTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_salaryTextKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_salaryTextKeyTyped
+
+    private boolean isNumber(char ch) {
+        return ch >= '0' && ch <= '9';
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel EmailLabel;
     private javax.swing.JLabel FNameLabel;

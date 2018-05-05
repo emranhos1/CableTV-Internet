@@ -3,16 +3,20 @@ package com.eh.admin;
 import com.eh.dao.SelectQueryDao;
 import com.eh.dbconnection.conRs;
 import com.eh.details.ShowEmployeeDetails;
+import java.awt.Image;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+
 /**
  *
  * @author Md. Emran Hossain
@@ -160,17 +164,23 @@ public class AllEmployee extends javax.swing.JInternalFrame {
                 sed.addressTextArea.setText(rs.getString("address"));
                 sed.joindateTextField.setText(rs.getString("join_date"));
                 sed.startingsalaryTextField.setText(rs.getString("starting_salary"));
-                sed.detailsLabel.setText("Details of : "+rs.getString("first_name")+" "+rs.getString("last_name"));
+                sed.detailsLabel.setText("Details of : " + rs.getString("first_name") + " " + rs.getString("last_name"));
                 String fileName = rs.getString("scan_photo");
                 System.out.println(fileName);
-                
-                
-////                File file = new File(getClass().getResource("E:/Programming/1. Office project/Project/Cable Desktop app/JinanItCableOM/file/" + rs.getString("scan_photo")).getFile());
-////                String filePath = file.getAbsolutePath();
-//                ImageIcon imageIcon = new ImageIcon(getClass().getResource("E:/Programming/1. Office project/Project/Cable Desktop app/JinanItCableOM/file/"+fileName));
-//                Image image = imageIcon.getImage().getScaledInstance(sed.photoLabel.getWidth(), sed.photoLabel.getHeight(), Image.SCALE_SMOOTH);
-//                sed.photoLabel.setIcon(new ImageIcon(image));
-                
+
+//                try {
+//                    File file = new File(getClass().getResource("/file/" + fileName).getFile());
+//                    String filePath = file.getAbsolutePath();
+//                    System.out.println(filePath);
+//
+////                    ImageIcon imageIcon = new ImageIcon(getClass().getResource("E:/Programming/1. Office project/Project/Cable Desktop app/JinanItCableOM/file/" + fileName));
+////                    Image image = imageIcon.getImage().getScaledInstance(sed.photoLabel.getWidth(), sed.photoLabel.getHeight(), Image.SCALE_SMOOTH);
+////                    System.out.println(imageIcon);
+////                    sed.photoLabel.setIcon(new ImageIcon(image));
+//                } catch (Exception e) {
+//                    Logger.getLogger(AllEmployee.class.getName()).log(Level.SEVERE, null, e);
+//                }
+
             }
 
         } catch (SQLException ex) {

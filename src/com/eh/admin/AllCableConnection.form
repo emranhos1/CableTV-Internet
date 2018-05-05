@@ -321,6 +321,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="monthlyPayText">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="monthlyPayTextKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="connectionFeeLabel">
       <Properties>
@@ -333,6 +336,7 @@
     <Component class="javax.swing.JTextField" name="connectionFeeText">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="connectionFeeTextActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="connectionFeeTextKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="commentLabel">
@@ -441,6 +445,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="phoneText">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="phoneTextKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="billingTypeLabel">
       <Properties>
