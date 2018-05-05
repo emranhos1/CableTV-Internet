@@ -36,9 +36,11 @@ public class AddProduct extends javax.swing.JInternalFrame {
         typeComboBox = new javax.swing.JComboBox<>();
 
         setClosable(true);
+        setTitle("Add Product");
 
         addProductLabel.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         addProductLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        addProductLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Add-product.png"))); // NOI18N
         addProductLabel.setText("Add Product");
         addProductLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -49,7 +51,8 @@ public class AddProduct extends javax.swing.JInternalFrame {
         productBrandLabel.setText("Product Brand :");
 
         saveButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        saveButton.setText("Add Product");
+        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/save.png"))); // NOI18N
+        saveButton.setText("Save");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveButtonActionPerformed(evt);
@@ -57,6 +60,7 @@ public class AddProduct extends javax.swing.JInternalFrame {
         });
 
         resetButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        resetButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Reset.png"))); // NOI18N
         resetButton.setText("Reset");
         resetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,14 +91,16 @@ public class AddProduct extends javax.swing.JInternalFrame {
                             .addComponent(productBrandTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(typeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(addProductLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(123, 123, 123)
                         .addComponent(saveButton)
                         .addGap(18, 18, 18)
-                        .addComponent(resetButton)))
-                .addContainerGap(114, Short.MAX_VALUE))
+                        .addComponent(resetButton)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(106, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(148, 148, 148)
+                .addComponent(addProductLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +123,7 @@ public class AddProduct extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveButton)
                     .addComponent(resetButton))
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         pack();

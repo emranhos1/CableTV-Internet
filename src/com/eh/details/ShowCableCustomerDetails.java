@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Md. Emran Hossain
@@ -15,6 +16,7 @@ import javax.swing.JOptionPane;
 public class ShowCableCustomerDetails extends javax.swing.JFrame {
 
     private ImageIcon icon = new ImageIcon("image/SKF1.jpg");
+
     public ShowCableCustomerDetails() {
         initComponents();
         setLocationRelativeTo(this);
@@ -61,7 +63,14 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
 
         cableDetailsLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cableDetailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cableDetailsLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/All-Cable.png"))); // NOI18N
         cableDetailsLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        phoneText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                phoneTextKeyTyped(evt);
+            }
+        });
 
         emailLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         emailLabel.setText("Email :");
@@ -139,6 +148,7 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
         jScrollPane2.setViewportView(commentsArea);
 
         updateButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        updateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Update.png"))); // NOI18N
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,6 +157,7 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
         });
 
         closeConnectionButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        closeConnectionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/CloseConnection.png"))); // NOI18N
         closeConnectionButton.setText("Close Connection");
         closeConnectionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,8 +215,8 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(closeConnectionButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(245, 245, 245)
-                        .addComponent(cableDetailsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(155, 155, 155)
+                        .addComponent(cableDetailsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(68, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -244,7 +255,7 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(arealLabel)
                             .addComponent(areaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 10, Short.MAX_VALUE)
+                        .addGap(0, 8, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(connectionFeeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(connectionFeeLabel))
@@ -346,6 +357,16 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
             Logger.getLogger(AllCableConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_closeConnectionButtonActionPerformed
+
+    private void phoneTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneTextKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_phoneTextKeyTyped
+    private boolean isNumber(char ch) {
+        return ch >= '0' && ch <= '9';
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

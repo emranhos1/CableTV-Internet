@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Md. Emran Hossain
@@ -52,6 +53,22 @@ public class NewInternetConnection extends javax.swing.JInternalFrame {
         loadBillingCombo();
     }
 
+    public void clearAll() {
+        CustomerFirstNameText.setText("");
+        CustomerLastNameText.setText("");
+        userIDText.setText("");
+        macComboBox.setSelectedIndex(0);
+        ipComboBox.setSelectedIndex(0);
+        phoneNoText.setText("");
+        emailText.setText("");
+        areaText.setText("");
+        addressText.setText("");
+        monthlyPayText.setText("");
+        connectionFeeText.setText("");
+        billingTypeComboBox.setSelectedIndex(0);
+        commentsText.setText("");
+    }
+    
     public void loadIPCombo() {
 
         String columnName = " ip_address_id, address ";
@@ -181,6 +198,7 @@ public class NewInternetConnection extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/New-Internet.png"))); // NOI18N
         jLabel1.setText("New Internet Connection");
         jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -210,8 +228,20 @@ public class NewInternetConnection extends javax.swing.JInternalFrame {
         monthlyPayLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         monthlyPayLabel.setText("Monthly Pay :");
 
+        monthlyPayText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                monthlyPayTextKeyTyped(evt);
+            }
+        });
+
         connectionFeeLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         connectionFeeLabel.setText("Connection Fee :");
+
+        connectionFeeText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                connectionFeeTextKeyTyped(evt);
+            }
+        });
 
         billingTypeLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         billingTypeLabel.setText("Billing Type :");
@@ -254,6 +284,7 @@ public class NewInternetConnection extends javax.swing.JInternalFrame {
         phoneNoLabel.setText("Phone No :");
 
         save.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Save.png"))); // NOI18N
         save.setText("Add New Internat Connection");
         save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,6 +296,7 @@ public class NewInternetConnection extends javax.swing.JInternalFrame {
         emailLabel.setText("Email :");
 
         reset.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        reset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Reset.png"))); // NOI18N
         reset.setText("Reset");
         reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -277,88 +309,90 @@ public class NewInternetConnection extends javax.swing.JInternalFrame {
         areaLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         areaLabel.setText("Area :");
 
+        phoneNoText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                phoneNoTextKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(193, 193, 193)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(phoneNoLabel)
-                                                    .addComponent(CusLastNameLabel)
-                                                    .addComponent(userIdLabel)
-                                                    .addComponent(macAddressLabel)
-                                                    .addComponent(ipAddressLabel))
-                                                .addGap(18, 18, Short.MAX_VALUE)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(macComboBox, 0, 182, Short.MAX_VALUE)
-                                                    .addComponent(userIDText)
-                                                    .addComponent(ipComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(phoneNoText)))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGap(109, 109, 109)
-                                                        .addComponent(emailLabel)
-                                                        .addGap(18, 18, Short.MAX_VALUE))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(addressLabel)
-                                                        .addGap(21, 21, 21)))
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                                                    .addComponent(emailText))))
-                                        .addGap(22, 22, 22))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(CustomerLastNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(CusFirstNameLabel)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(CustomerFirstNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(11, 11, 11)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(12, 12, 12)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(monthlyPayLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(connectionFeeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(billingTypeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(commentLabel, javax.swing.GroupLayout.Alignment.TRAILING)))
-                                        .addComponent(connectionDateLabel)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addGap(73, 73, 73)
-                                            .addComponent(activeLabel)))
-                                    .addComponent(areaLabel))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(connectionFeeText, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(monthlyPayText, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(connectionDateChooser, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(yesRadioButton)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(noRadioButton))
-                                    .addComponent(billingTypeComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 181, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane1)
-                                    .addComponent(areaText, javax.swing.GroupLayout.Alignment.LEADING)))
+                                    .addComponent(phoneNoLabel)
+                                    .addComponent(CusLastNameLabel)
+                                    .addComponent(userIdLabel)
+                                    .addComponent(macAddressLabel)
+                                    .addComponent(ipAddressLabel))
+                                .addGap(18, 18, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(macComboBox, 0, 182, Short.MAX_VALUE)
+                                    .addComponent(userIDText)
+                                    .addComponent(ipComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(phoneNoText)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(216, 216, 216)
-                                .addComponent(save)
+                                .addGap(89, 89, 89)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(emailLabel)
+                                    .addComponent(addressLabel))
+                                .addGap(18, 18, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                                    .addComponent(emailText))))
+                        .addGap(22, 22, 22))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(CustomerLastNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(CusFirstNameLabel)
                                 .addGap(18, 18, 18)
-                                .addComponent(reset)))))
+                                .addComponent(CustomerFirstNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(11, 11, 11)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(12, 12, 12)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(monthlyPayLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(connectionFeeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(billingTypeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(commentLabel, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addComponent(connectionDateLabel)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGap(73, 73, 73)
+                            .addComponent(activeLabel)))
+                    .addComponent(areaLabel))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(connectionFeeText, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(monthlyPayText, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(connectionDateChooser, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(yesRadioButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(noRadioButton))
+                    .addComponent(billingTypeComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 181, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
+                    .addComponent(areaText, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(44, 44, 44))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(202, 202, 202)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(178, 178, 178)
+                        .addComponent(save)
+                        .addGap(18, 18, 18)
+                        .addComponent(reset)))
+                .addContainerGap(204, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -431,11 +465,11 @@ public class NewInternetConnection extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(addressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(17, 17, 17)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(save)
                     .addComponent(reset))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         pack();
@@ -500,6 +534,7 @@ public class NewInternetConnection extends javax.swing.JInternalFrame {
 
                                                                     if (addInternetConnection) {
                                                                         JOptionPane.showMessageDialog(null, "New Internat Connection created");
+                                                                        clearAll();
                                                                     } else {
                                                                         JOptionPane.showMessageDialog(null, "No Connection created");
                                                                     }
@@ -556,20 +591,32 @@ public class NewInternetConnection extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_saveActionPerformed
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
-        CustomerFirstNameText.setText("");
-        CustomerLastNameText.setText("");
-        userIDText.setText("");
-        macComboBox.setSelectedIndex(0);
-        ipComboBox.setSelectedIndex(0);
-        phoneNoText.setText("");
-        emailText.setText("");
-        areaText.setText("");
-        addressText.setText("");
-        monthlyPayText.setText("");
-        connectionFeeText.setText("");
-        billingTypeComboBox.setSelectedIndex(0);
-        commentsText.setText("");
+        clearAll();
     }//GEN-LAST:event_resetActionPerformed
+
+    private void phoneNoTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNoTextKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_phoneNoTextKeyTyped
+
+    private void monthlyPayTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_monthlyPayTextKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_monthlyPayTextKeyTyped
+
+    private void connectionFeeTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_connectionFeeTextKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_connectionFeeTextKeyTyped
+    private boolean isNumber(char ch) {
+        return ch >= '0' && ch <= '9';
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

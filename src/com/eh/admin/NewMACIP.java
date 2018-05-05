@@ -117,12 +117,14 @@ public class NewMACIP extends javax.swing.JInternalFrame {
         ipLabel = new javax.swing.JLabel();
 
         setClosable(true);
+        setTitle("Add MAC/IP");
 
         MACAddress.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         MACAddress.setText("MAC Address :");
 
         macipLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         macipLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        macipLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/IP.png"))); // NOI18N
         macipLabel.setText("Add MAC / IP Address");
         macipLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -130,6 +132,7 @@ public class NewMACIP extends javax.swing.JInternalFrame {
         IPAddress.setText("IP Address :");
 
         macButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        macButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Save.png"))); // NOI18N
         macButton.setText("Add MAC");
         macButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +141,7 @@ public class NewMACIP extends javax.swing.JInternalFrame {
         });
 
         ipButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        ipButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Save.png"))); // NOI18N
         ipButton.setText("Add IP");
         ipButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,6 +150,7 @@ public class NewMACIP extends javax.swing.JInternalFrame {
         });
 
         availableMACButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        availableMACButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Available.png"))); // NOI18N
         availableMACButton.setText("Available MAC");
         availableMACButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,6 +159,7 @@ public class NewMACIP extends javax.swing.JInternalFrame {
         });
 
         availableIPButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        availableIPButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Available.png"))); // NOI18N
         availableIPButton1.setText("Available IP");
         availableIPButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,7 +210,7 @@ public class NewMACIP extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(39, 39, 39)
                                 .addComponent(macButton)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(availableMACButton))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
@@ -212,11 +218,11 @@ public class NewMACIP extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(88, 88, 88)
                                 .addComponent(macLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(row1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -234,7 +240,7 @@ public class NewMACIP extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(MACAddress)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(macField, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -275,7 +281,7 @@ public class NewMACIP extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(row1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 89, Short.MAX_VALUE))
+                .addGap(0, 67, Short.MAX_VALUE))
         );
 
         pack();

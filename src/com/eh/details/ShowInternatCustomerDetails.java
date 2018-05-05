@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Md. Emran Hossain
@@ -13,6 +14,7 @@ import javax.swing.JOptionPane;
 public class ShowInternatCustomerDetails extends javax.swing.JFrame {
 
     private ImageIcon icon = new ImageIcon("image/SKF1.jpg");
+
     public ShowInternatCustomerDetails() {
         initComponents();
         setLocationRelativeTo(this);
@@ -92,10 +94,17 @@ public class ShowInternatCustomerDetails extends javax.swing.JFrame {
 
         internetDetailsLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         internetDetailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        internetDetailsLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/All-Internet.png"))); // NOI18N
         internetDetailsLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         monthlyPayLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         monthlyPayLabel.setText("Monthly Pay :");
+
+        phoneText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                phoneTextKeyTyped(evt);
+            }
+        });
 
         monthlypayText.setEditable(false);
         monthlypayText.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +133,9 @@ public class ShowInternatCustomerDetails extends javax.swing.JFrame {
         arealLabel.setText("Area :");
 
         updateButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        updateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Update.png"))); // NOI18N
         updateButton.setText("Update");
+        updateButton.setToolTipText("");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateButtonActionPerformed(evt);
@@ -135,6 +146,7 @@ public class ShowInternatCustomerDetails extends javax.swing.JFrame {
         connectionFeeLabel.setText("Connection Fee :");
 
         closeConnectionButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        closeConnectionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/CloseConnection.png"))); // NOI18N
         closeConnectionButton.setText("Close Connection");
         closeConnectionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,51 +185,45 @@ public class ShowInternatCustomerDetails extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(customerIdlabel)
-                                            .addComponent(firstNameLabel)
-                                            .addComponent(lastNameLabel)
-                                            .addComponent(userIdLabel)
-                                            .addComponent(macLabel)
-                                            .addComponent(ipLabel))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(lastNameText, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                                                .addComponent(firstNameText)
-                                                .addComponent(customerIdText)
-                                                .addComponent(userIdText)
-                                                .addComponent(macAddressText))
-                                            .addComponent(IPAddressText)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(phoneLabel)
-                                            .addComponent(emailLabel)
-                                            .addComponent(arealLabel)
-                                            .addComponent(connectionFeeLabel))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(phoneText)
-                                                .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(areaText, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(connectionFeeText, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(monthlyPayLabel)
-                                    .addComponent(conDateLabel)
-                                    .addComponent(commentLabel)
-                                    .addComponent(addressLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(231, 231, 231)
-                                .addComponent(internetDetailsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(customerIdlabel)
+                                    .addComponent(firstNameLabel)
+                                    .addComponent(lastNameLabel)
+                                    .addComponent(userIdLabel)
+                                    .addComponent(macLabel)
+                                    .addComponent(ipLabel))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(lastNameText, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                                        .addComponent(firstNameText)
+                                        .addComponent(customerIdText)
+                                        .addComponent(userIdText)
+                                        .addComponent(macAddressText))
+                                    .addComponent(IPAddressText, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(phoneLabel)
+                                    .addComponent(emailLabel)
+                                    .addComponent(arealLabel)
+                                    .addComponent(connectionFeeLabel))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(phoneText)
+                                        .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(areaText, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(connectionFeeText, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(monthlyPayLabel)
+                            .addComponent(conDateLabel)
+                            .addComponent(commentLabel)
+                            .addComponent(addressLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(connectionDateText, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -229,13 +235,19 @@ public class ShowInternatCustomerDetails extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(closeConnectionButton)))
                 .addContainerGap(49, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(internetDetailsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(internetDetailsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
+                        .addGap(34, 34, 34)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -246,9 +258,7 @@ public class ShowInternatCustomerDetails extends javax.swing.JFrame {
                             .addComponent(monthlyPayLabel)
                             .addComponent(monthlypayText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(internetDetailsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
+                        .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(addressLabel)
                             .addComponent(customerIdlabel)
@@ -287,7 +297,7 @@ public class ShowInternatCustomerDetails extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(arealLabel)
                             .addComponent(areaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 6, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(connectionFeeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(connectionFeeLabel))
@@ -295,7 +305,7 @@ public class ShowInternatCustomerDetails extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(updateButton)
                             .addComponent(closeConnectionButton))
-                        .addGap(139, 139, 139))
+                        .addGap(40, 40, 40))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(commentLabel)
@@ -355,22 +365,22 @@ public class ShowInternatCustomerDetails extends javax.swing.JFrame {
             String userId = userIdText.getText();
 
             //            if (userCardComboBox.getSelectedIndex() == -1) {
-                //
-                //                JOptionPane.showMessageDialog(null, "Select one Card Number to Close Connection");
-                //            } else{
-                String tableName = " customer_internet ";
+            //
+            //                JOptionPane.showMessageDialog(null, "Select one Card Number to Close Connection");
+            //            } else{
+            String tableName = " customer_internet ";
 
-                String columnNameANDcolumnValue = " is_active = '0' ";
-                String whereCondition = " user_id = '" + userId + "'";
+            String columnNameANDcolumnValue = " is_active = '0' ";
+            String whereCondition = " user_id = '" + userId + "'";
 
-                boolean closeCableConnection = UpdateQueryDao.updateQueryWithWhereClause(tableName, columnNameANDcolumnValue, whereCondition);
+            boolean closeCableConnection = UpdateQueryDao.updateQueryWithWhereClause(tableName, columnNameANDcolumnValue, whereCondition);
 
-                if (closeCableConnection) {
-                    JOptionPane.showMessageDialog(null, "Connection Closed");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Not Closed");
-                }
-                //            }
+            if (closeCableConnection) {
+                JOptionPane.showMessageDialog(null, "Connection Closed");
+            } else {
+                JOptionPane.showMessageDialog(null, "Not Closed");
+            }
+            //            }
         } catch (SQLException ex) {
             Logger.getLogger(ShowInternatCustomerDetails.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -379,6 +389,16 @@ public class ShowInternatCustomerDetails extends javax.swing.JFrame {
     private void connectionFeeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectionFeeTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_connectionFeeTextActionPerformed
+
+    private void phoneTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneTextKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_phoneTextKeyTyped
+    private boolean isNumber(char ch) {
+        return ch >= '0' && ch <= '9';
+    }
 
     /**
      * @param args the command line arguments

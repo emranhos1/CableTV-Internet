@@ -84,6 +84,7 @@ public class AllEmployee extends javax.swing.JInternalFrame {
         allEmployeeLabel = new javax.swing.JLabel();
 
         setClosable(true);
+        setTitle("All Employee");
 
         empTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -102,6 +103,7 @@ public class AllEmployee extends javax.swing.JInternalFrame {
 
         allEmployeeLabel.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         allEmployeeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        allEmployeeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Employee.png"))); // NOI18N
         allEmployeeLabel.setText("All Employee");
         allEmployeeLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 

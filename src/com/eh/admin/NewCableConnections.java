@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Md. Emran Hossain
@@ -51,6 +52,20 @@ public class NewCableConnections extends javax.swing.JInternalFrame {
         loadBillingTypeCombo();
     }
 
+    public void clearAll() {
+        CustomerFirstNameText.setText("");
+        CustomerLastNameText.setText("");
+        cardNoText.setText("");
+        phoneNoText.setText("");
+        emailText.setText("");
+        areaText.setText("");
+        addressText.setText("");
+        monthlyPayText.setText("");
+        connectionFeeText.setText("");
+        billingTypeComboBox.setSelectedIndex(0);
+        commentsText.setText("");
+    }
+
     public void loadBillingTypeCombo() {
 
         String columnName = " bill_type_id, bill_type_name ";
@@ -77,6 +92,7 @@ public class NewCableConnections extends javax.swing.JInternalFrame {
             }
         }
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -116,9 +132,11 @@ public class NewCableConnections extends javax.swing.JInternalFrame {
         reset = new javax.swing.JButton();
 
         setClosable(true);
+        setTitle("New Cable Connection");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/New-Cable.png"))); // NOI18N
         jLabel1.setText("New Cable Connection");
         jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -127,6 +145,12 @@ public class NewCableConnections extends javax.swing.JInternalFrame {
 
         addressLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         addressLabel.setText("Address :");
+
+        connectionFeeText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                connectionFeeTextKeyTyped(evt);
+            }
+        });
 
         addressText.setColumns(20);
         addressText.setRows(5);
@@ -177,11 +201,23 @@ public class NewCableConnections extends javax.swing.JInternalFrame {
             }
         });
 
+        phoneNoText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                phoneNoTextKeyTyped(evt);
+            }
+        });
+
         emailLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         emailLabel.setText("Email :");
 
         monthlyPayLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         monthlyPayLabel.setText("Monthly Pay :");
+
+        monthlyPayText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                monthlyPayTextKeyTyped(evt);
+            }
+        });
 
         areaLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         areaLabel.setText("Area :");
@@ -190,6 +226,7 @@ public class NewCableConnections extends javax.swing.JInternalFrame {
         cardNoLabel.setText("Card Number :");
 
         save.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Save.png"))); // NOI18N
         save.setText("Add New Cable Connection");
         save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,6 +235,7 @@ public class NewCableConnections extends javax.swing.JInternalFrame {
         });
 
         reset.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        reset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Reset.png"))); // NOI18N
         reset.setText("Reset");
         reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -330,7 +368,7 @@ public class NewCableConnections extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(addressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(save)
                     .addComponent(reset))
@@ -394,6 +432,7 @@ public class NewCableConnections extends javax.swing.JInternalFrame {
                                                             }
                                                             if (addCableConnection) {
                                                                 JOptionPane.showMessageDialog(null, "New Connection created Successfully");
+                                                                clearAll();
                                                             } else {
                                                                 JOptionPane.showMessageDialog(null, "New Connection Not created");
                                                             }
@@ -439,19 +478,32 @@ public class NewCableConnections extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_saveActionPerformed
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
-
-        CustomerFirstNameText.setText("");
-        CustomerLastNameText.setText("");
-        cardNoText.setText("");
-        phoneNoText.setText("");
-        emailText.setText("");
-        areaText.setText("");
-        addressText.setText("");
-        monthlyPayText.setText("");
-        connectionFeeText.setText("");
-        billingTypeComboBox.setSelectedIndex(0);
-        commentsText.setText("");
+        clearAll();
     }//GEN-LAST:event_resetActionPerformed
+
+    private void phoneNoTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNoTextKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_phoneNoTextKeyTyped
+
+    private void monthlyPayTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_monthlyPayTextKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_monthlyPayTextKeyTyped
+
+    private void connectionFeeTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_connectionFeeTextKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_connectionFeeTextKeyTyped
+    private boolean isNumber(char ch) {
+        return ch >= '0' && ch <= '9';
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -166,6 +166,8 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
         closeConnection = new javax.swing.JButton();
 
         setClosable(true);
+        setTitle("All Cable Connection");
+        setToolTipText("");
 
         cableTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -184,6 +186,7 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
 
         allCableConnection.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         allCableConnection.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        allCableConnection.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/All-Cable.png"))); // NOI18N
         allCableConnection.setText("All Cable Connection");
         allCableConnection.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -228,6 +231,7 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
         firstNameLabel.setText("First Name :");
 
         Update.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Update.png"))); // NOI18N
         Update.setText("Update");
         Update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,6 +240,7 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
         });
 
         reset.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        reset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Reset.png"))); // NOI18N
         reset.setText("Reset");
         reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,7 +252,8 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
         lastNameLabel.setText("Last Name :");
 
         addCableConnection.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        addCableConnection.setText("Add New Connection");
+        addCableConnection.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/New-Internet.png"))); // NOI18N
+        addCableConnection.setText("New Connection");
         addCableConnection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addCableConnectionActionPerformed(evt);
@@ -294,6 +300,7 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
         monthlyPayLabel.setText("Monthly Pay :");
 
         closeConnection.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        closeConnection.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/CloseConnection.png"))); // NOI18N
         closeConnection.setText("Close Connection");
         closeConnection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -356,7 +363,7 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
                                 .addComponent(conDateLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(connectionDateText, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                            .addComponent(connectionDateText, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
                             .addComponent(monthlyPayText)
                             .addComponent(billingTypeText, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -369,7 +376,7 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(commentLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)))))
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)))))
                 .addGap(58, 58, 58))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

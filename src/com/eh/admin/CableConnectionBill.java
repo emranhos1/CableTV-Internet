@@ -155,9 +155,11 @@ public class CableConnectionBill extends javax.swing.JInternalFrame {
         indivisuldueTable = new javax.swing.JTable();
 
         setClosable(true);
+        setTitle("Cable Bill");
 
         detailsLabel.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         detailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        detailsLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Cable-Bill.png"))); // NOI18N
         detailsLabel.setText("Cable Connection Bill");
         detailsLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -282,6 +284,7 @@ public class CableConnectionBill extends javax.swing.JInternalFrame {
         fullPayPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Full Pay", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
         fullPaySaveButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        fullPaySaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Save.png"))); // NOI18N
         fullPaySaveButton.setText("Paid");
         fullPaySaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,6 +293,7 @@ public class CableConnectionBill extends javax.swing.JInternalFrame {
         });
 
         fullClearButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        fullClearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Reset.png"))); // NOI18N
         fullClearButton.setText("Clear");
         fullClearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -336,28 +340,29 @@ public class CableConnectionBill extends javax.swing.JInternalFrame {
         fullPayPanelLayout.setHorizontalGroup(
             fullPayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fullPayPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(fullPaySaveButton)
-                .addGap(18, 18, 18)
-                .addComponent(fullClearButton)
-                .addGap(85, 85, 85))
-            .addGroup(fullPayPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(fullPayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(fullPayMonthLabel)
-                    .addComponent(previousmonthlyDueLabel)
-                    .addComponent(PaymentLabel)
-                    .addComponent(dueLabel))
-                .addGap(18, 18, 18)
-                .addGroup(fullPayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fullPayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(previousmonthlyDueTextField)
-                        .addComponent(PaymentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(dueTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(fullPayPanelLayout.createSequentialGroup()
-                        .addComponent(MonthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(fullPayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(fullPayMonthLabel)
+                            .addComponent(previousmonthlyDueLabel)
+                            .addComponent(PaymentLabel)
+                            .addComponent(dueLabel))
+                        .addGap(18, 18, 18)
+                        .addGroup(fullPayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(fullPayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(previousmonthlyDueTextField)
+                                .addComponent(PaymentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(dueTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(fullPayPanelLayout.createSequentialGroup()
+                                .addComponent(MonthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(fullPayPanelLayout.createSequentialGroup()
+                        .addComponent(fullPaySaveButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(fullClearButton)
+                        .addGap(26, 26, 26)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         fullPayPanelLayout.setVerticalGroup(
@@ -412,6 +417,7 @@ public class CableConnectionBill extends javax.swing.JInternalFrame {
         );
 
         generateBillButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        generateBillButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Generate-bill.png"))); // NOI18N
         generateBillButton.setText("Generate Bill");
         generateBillButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -468,7 +474,7 @@ public class CableConnectionBill extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(43, 43, 43)
                 .addComponent(generateBillButton)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();

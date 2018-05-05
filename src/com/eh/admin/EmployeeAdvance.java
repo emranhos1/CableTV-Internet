@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Md. Emran Hossain
@@ -25,8 +26,8 @@ public class EmployeeAdvance extends javax.swing.JInternalFrame {
         initComponents();
         loadPhoneNoCombo();
     }
-    
-    public void clearAll(){
+
+    public void clearAll() {
         employeePhoneComboBox.setSelectedIndex(0);
         employeeIdTextField.setText("");
         nameTextField.setText("");
@@ -81,9 +82,11 @@ public class EmployeeAdvance extends javax.swing.JInternalFrame {
         employeeIdTextField = new javax.swing.JTextField();
 
         setClosable(true);
+        setTitle("Advance");
 
         advanceLabel.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         advanceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        advanceLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Advance.png"))); // NOI18N
         advanceLabel.setText("Advance");
         advanceLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -105,7 +108,14 @@ public class EmployeeAdvance extends javax.swing.JInternalFrame {
         advanceMoneyLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         advanceMoneyLabel.setText("Advance :");
 
+        advanceTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                advanceTextFieldKeyTyped(evt);
+            }
+        });
+
         submitButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        submitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Save.png"))); // NOI18N
         submitButton.setText("Submit");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,7 +191,7 @@ public class EmployeeAdvance extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(submitButton)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
@@ -256,6 +266,16 @@ public class EmployeeAdvance extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_submitButtonActionPerformed
 
+    private void advanceTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_advanceTextFieldKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_advanceTextFieldKeyTyped
+    private boolean isNumber(char ch) {
+        return ch >= '0' && ch <= '9';
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel advanceLabel;
@@ -271,6 +291,5 @@ public class EmployeeAdvance extends javax.swing.JInternalFrame {
     private javax.swing.JLabel parpusLabel;
     private javax.swing.JTextArea purposeTextArea;
     private javax.swing.JButton submitButton;
-    private javax.swing.JComboBox<String> useridComboBox;
     // End of variables declaration//GEN-END:variables
 }

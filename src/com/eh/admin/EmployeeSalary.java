@@ -26,6 +26,8 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
     private Connection con1;
     private PreparedStatement pstm1;
     private ResultSet rs1;
+    private String employeeID;
+    private String monthYear;
 
     public EmployeeSalary() {
         initComponents();
@@ -112,8 +114,10 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
         yearComboBox = new javax.swing.JComboBox<>();
 
         setClosable(true);
+        setTitle("Employee Salary");
 
         printButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        printButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Print.png"))); // NOI18N
         printButton.setText("Print");
         printButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,6 +146,7 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
         EmployeeNameLabel.setText("Employee Name :");
 
         totalButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        totalButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Total.png"))); // NOI18N
         totalButton.setText("Total");
         totalButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,14 +199,27 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
         bonusLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         bonusLabel.setText("Bonus :");
 
+        bonusTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                bonusTextFieldKeyTyped(evt);
+            }
+        });
+
         extraLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         extraLabel.setText("Extra :");
+
+        extraTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                extraTextFieldKeyTyped(evt);
+            }
+        });
 
         EmployeeIdLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         EmployeeIdLabel.setText("Employee Id :");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Employee-salary.png"))); // NOI18N
         jLabel2.setText("Employee Salary");
         jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -211,6 +229,7 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(formatedTextArea);
 
         addButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Add-record.png"))); // NOI18N
         addButton.setText("Add Record");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,6 +238,7 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
         });
 
         clearButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        clearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Reset.png"))); // NOI18N
         clearButton.setText("Clear");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,6 +247,7 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
         });
 
         saveButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Save.png"))); // NOI18N
         saveButton.setText("Save Data");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,6 +256,11 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
         });
 
         yearComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2016", "2017", "2018", "2019", "2020" }));
+        yearComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yearComboBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -273,17 +299,17 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(totalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(clearButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(saveButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(totalButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(clearButton))
-                            .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
@@ -357,7 +383,7 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(printButton)
                             .addComponent(saveButton))))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
@@ -483,30 +509,30 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
 
         if (employeeIdComboBox.getSelectedIndex() > 0) {
             if (monthComboBox.getSelectedIndex() > 0) {
-            if (yearComboBox.getSelectedIndex() > 0) {
-                if (!totalTextField.equals("")) {
-                    formatedTextArea.setText(null);
-                    formatedTextArea.append("\t\t Employee Payment \n\n"
-                            + "Employee Name :\t\t" + employeeNameTextField.getText()
-                            + "\n===================================================\n"
-                            + "Phone No :\t\t\t" + phoneNoTextField.getText() + "\n\n"
-                            + "Email :\t\t\t" + emailTextField.getText() + "\n\n"
-                            + "Join Date :\t\t\t" + joinDateTextField.getText() + "\n\n"
-                            + "Salary :\t\t\t" + salaryTextField.getText() + "\n\n"
-                            + "Bonus :\t\t\t" + bonusTextField.getText() + "\n\n"
-                            + "Extra :\t\t\t" + extraTextField.getText() + "\n\n"
-                            + "Month :\t\t\t" + monthComboBox.getSelectedItem().toString()+"-"+yearComboBox.getSelectedItem().toString() + "\n\n"
-                            + "Advance :\t\t\t" + advanceTextField.getText() + "\n\n"
-                            + "\n====================================================\n"
-                            + "Total :\t\t\t" + totalTextField.getText() + "\n\n"
-                    );
+                if (yearComboBox.getSelectedIndex() > 0) {
+                    if (!totalTextField.equals("")) {
+                        formatedTextArea.setText(null);
+                        formatedTextArea.append("\t\t Employee Payment \n\n"
+                                + "Employee Name :\t\t" + employeeNameTextField.getText()
+                                + "\n===================================================\n"
+                                + "Phone No :\t\t\t" + phoneNoTextField.getText() + "\n\n"
+                                + "Email :\t\t\t" + emailTextField.getText() + "\n\n"
+                                + "Join Date :\t\t\t" + joinDateTextField.getText() + "\n\n"
+                                + "Salary :\t\t\t" + salaryTextField.getText() + "\n\n"
+                                + "Bonus :\t\t\t" + bonusTextField.getText() + "\n\n"
+                                + "Extra :\t\t\t" + extraTextField.getText() + "\n\n"
+                                + "Month :\t\t\t" + monthComboBox.getSelectedItem().toString() + "-" + yearComboBox.getSelectedItem().toString() + "\n\n"
+                                + "Advance :\t\t\t" + advanceTextField.getText() + "\n\n"
+                                + "\n====================================================\n"
+                                + "Total :\t\t\t" + totalTextField.getText() + "\n\n"
+                        );
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Calculate Total");
+                    }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Calculate Total");
+                    JOptionPane.showMessageDialog(null, "Select Year");
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "Select Year");
-            }
-                
+
             } else {
                 JOptionPane.showMessageDialog(null, "Select Month");
             }
@@ -518,7 +544,7 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         String[] comboBox1 = employeeIdComboBox.getSelectedItem().toString().split("~");
-	String empId  = comboBox1[0];
+        String empId = comboBox1[0];
         String month = monthComboBox.getSelectedItem().toString();
         String year = yearComboBox.getSelectedItem().toString();
         String salary = salaryTextField.getText();
@@ -531,7 +557,7 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
                 if (yearComboBox.getSelectedIndex() > 0) {
                     String tableName = " employee_salary ";
                     String columnName = " employee_id, salary_month, current_salary, bonus, extra, advance, salary_payment_date ";
-                    String values = "'" + empId + "', '" + month+"-"+year + "', '" + salary + "', '" + bonus + "', '" + extra + "', '" + advance + "', now() ";
+                    String values = "'" + empId + "', '" + month + "-" + year + "', '" + salary + "', '" + bonus + "', '" + extra + "', '" + advance + "', now() ";
                     boolean addEmployeeSalary = false;
                     try {
                         addEmployeeSalary = InsertQueryDao.insertQueryWithOutWhereClause(tableName, columnName, values);
@@ -541,7 +567,7 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
 
                     tableName = " employee_salary_month ";
                     columnName = " month_name, entry_time, employee_id ";
-                    values = "'" + month+"-"+year + "', now(), '" + empId + "' ";
+                    values = "'" + month + "-" + year + "', now(), '" + empId + "' ";
 
                     boolean addEmployeeSalaryMonth = false;
                     try {
@@ -569,6 +595,71 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Select Employee Id");
         }
     }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void bonusTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bonusTextFieldKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_bonusTextFieldKeyTyped
+
+    private void extraTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_extraTextFieldKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_extraTextFieldKeyTyped
+
+    private void yearComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearComboBoxActionPerformed
+        
+        if (employeeIdComboBox.getSelectedIndex() > 0) {
+            if (monthComboBox.getSelectedIndex() > 0) {
+                String[] comboBox1 = employeeIdComboBox.getSelectedItem().toString().split("~");
+                String employeeId = comboBox1[0];
+                String month = monthComboBox.getSelectedItem().toString();
+                String year = yearComboBox.getSelectedItem().toString();
+                String columnName = " employee_id, salary_month ";
+                String tableName = " employee_salary ";
+                String whereCondition = " employee_id = '"+employeeId+"'";
+                String date = month+"-"+year;
+                try {
+                    conrs = SelectQueryDao.selectQueryWithWhereClause(columnName, tableName, whereCondition);
+                    con = conrs.getCon();
+                    pstm = conrs.getPstm();
+                    rs = conrs.getRs();
+
+                    while (rs.next()) {
+                        employeeID = rs.getString("employee_id");
+                        monthYear = rs.getString("salary_month");
+                    }
+                    if (date.equals(monthYear)) {
+                        JOptionPane.showMessageDialog(null, "This month salary was paid already");
+                        monthComboBox.setSelectedIndex(0);
+                        yearComboBox.setSelectedIndex(0);
+                    } else {
+                        
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(InternetConnectionBill.class.getName()).log(Level.SEVERE, null, ex);
+                } finally {
+                    try {
+                        con.close();
+                        pstm.close();
+                        rs.close();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(InternetConnectionBill.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Select Month!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Select Employee Id!");
+        }
+    }//GEN-LAST:event_yearComboBoxActionPerformed
+    private boolean isNumber(char ch) {
+        return ch >= '0' && ch <= '9';
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

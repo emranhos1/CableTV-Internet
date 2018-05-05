@@ -153,14 +153,17 @@ public class AllDue extends javax.swing.JInternalFrame {
         ipButton = new javax.swing.JButton();
 
         setClosable(true);
+        setTitle("All Due");
 
         cabledueLabel.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         cabledueLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cabledueLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Advance.png"))); // NOI18N
         cabledueLabel.setText("Cable Due List");
         cabledueLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         internetdueLabel.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         internetdueLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        internetdueLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Advance.png"))); // NOI18N
         internetdueLabel.setText("Internet Due List");
         internetdueLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -187,6 +190,7 @@ public class AllDue extends javax.swing.JInternalFrame {
         jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         cpButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Print.png"))); // NOI18N
         cpButton.setText("Print");
         cpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,6 +199,7 @@ public class AllDue extends javax.swing.JInternalFrame {
         });
 
         ipButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        ipButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Print.png"))); // NOI18N
         ipButton.setText("Print");
         ipButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

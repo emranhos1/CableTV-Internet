@@ -12,11 +12,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Md. Emran Hossain
  */
-public class Inventory extends javax.swing.JInternalFrame {
+public class PurchaseORSell extends javax.swing.JInternalFrame {
 
     private conRs conrs;
     private Connection con;
@@ -24,16 +25,31 @@ public class Inventory extends javax.swing.JInternalFrame {
     private ResultSet rs;
     private double stock;
 
-    public Inventory() {
+    public PurchaseORSell() {
         initComponents();
         loadProductNameCombo();
         Update_table();
         loadEmployeeNameCombo();
     }
 
+    public void clearAll() {
+        productIdComboBox.setSelectedIndex(0);
+        purchaseByComboBox.setSelectedIndex(0);
+        sellByComboBox.setSelectedIndex(0);
+        productNameTextField.setText("");
+        productBrandTextField.setText("");
+        typeTextField.setText("");
+        instoreTextField.setText("");
+        purchaseqtyTextField.setText("");
+        purchaseamountTextField.setText("");
+        pDetailsTextArea.setText("");
+        sellqtyTextField.setText("");
+        sDetailsTextArea.setText("");
+    }
+
     public void loadProductNameCombo() {
 
-        String columnName = " product_id ";
+        String columnName = " concat(product_id,'~[',product_name,']') as product_id ";
         String tableName = " product ORDER BY product_id ASC ";
         try {
             conrs = SelectQueryDao.selectQueryWithOutWhereClause(columnName, tableName);
@@ -46,14 +62,14 @@ public class Inventory extends javax.swing.JInternalFrame {
                 productIdComboBox.addItem(productId);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PurchaseORSell.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 con.close();
                 pstm.close();
                 rs.close();
             } catch (SQLException ex) {
-                Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PurchaseORSell.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -76,14 +92,14 @@ public class Inventory extends javax.swing.JInternalFrame {
                 sellByComboBox.addItem(fName + " " + lName);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PurchaseORSell.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 con.close();
                 pstm.close();
                 rs.close();
             } catch (SQLException ex) {
-                Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PurchaseORSell.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -110,14 +126,14 @@ public class Inventory extends javax.swing.JInternalFrame {
             }
 
         } catch (Exception e) {
-            Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(PurchaseORSell.class.getName()).log(Level.SEVERE, null, e);
         } finally {
             try {
                 con.close();
                 pstm.close();
                 rs.close();
             } catch (SQLException ex) {
-                Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PurchaseORSell.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
@@ -134,7 +150,7 @@ public class Inventory extends javax.swing.JInternalFrame {
         purchaseqtyTextField = new javax.swing.JTextField();
         amountLabel = new javax.swing.JLabel();
         purchaseamountTextField = new javax.swing.JTextField();
-        saveButton = new javax.swing.JButton();
+        buysaveButton = new javax.swing.JButton();
         purchaseByLabel = new javax.swing.JLabel();
         purchaseByComboBox = new javax.swing.JComboBox<>();
         purchaseDetailsLabel = new javax.swing.JLabel();
@@ -170,6 +186,7 @@ public class Inventory extends javax.swing.JInternalFrame {
 
         purchaseselllabel.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         purchaseselllabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        purchaseselllabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Purchase-Sell.png"))); // NOI18N
         purchaseselllabel.setText("Purchase / Sell");
         purchaseselllabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -187,15 +204,27 @@ public class Inventory extends javax.swing.JInternalFrame {
                 purchaseqtyTextFieldActionPerformed(evt);
             }
         });
+        purchaseqtyTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                purchaseqtyTextFieldKeyTyped(evt);
+            }
+        });
 
         amountLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         amountLabel.setText("Amount :");
 
-        saveButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        saveButton.setText("Buy Product");
-        saveButton.addActionListener(new java.awt.event.ActionListener() {
+        purchaseamountTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                purchaseamountTextFieldKeyTyped(evt);
+            }
+        });
+
+        buysaveButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        buysaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Buy.png"))); // NOI18N
+        buysaveButton.setText("Buy Product");
+        buysaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveButtonActionPerformed(evt);
+                buysaveButtonActionPerformed(evt);
             }
         });
 
@@ -246,7 +275,7 @@ public class Inventory extends javax.swing.JInternalFrame {
                 .addGap(0, 24, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(77, 77, 77)
-                .addComponent(saveButton)
+                .addComponent(buysaveButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -269,7 +298,7 @@ public class Inventory extends javax.swing.JInternalFrame {
                     .addComponent(purchaseDetailsLabel)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(saveButton)
+                .addComponent(buysaveButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -295,7 +324,14 @@ public class Inventory extends javax.swing.JInternalFrame {
         sellqtyLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         sellqtyLabel.setText("QTY :");
 
+        sellqtyTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                sellqtyTextFieldKeyTyped(evt);
+            }
+        });
+
         sellsaveButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        sellsaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Sell.png"))); // NOI18N
         sellsaveButton.setText("Sell Product");
         sellsaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -355,7 +391,7 @@ public class Inventory extends javax.swing.JInternalFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sellDetailsLabel)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(sellsaveButton)
                 .addContainerGap())
         );
@@ -494,10 +530,6 @@ public class Inventory extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(290, Short.MAX_VALUE)
-                .addComponent(purchaseselllabel, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(284, 284, 284))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -514,6 +546,10 @@ public class Inventory extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(purchaseselllabel, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(284, 284, 284))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -541,7 +577,8 @@ public class Inventory extends javax.swing.JInternalFrame {
 
     private void productIdComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productIdComboBoxActionPerformed
 
-        String comboBox = productIdComboBox.getSelectedItem().toString();
+        String[] comboBox1 = productIdComboBox.getSelectedItem().toString().split("~");
+        String comboBox = comboBox1[0];
 
         String columnName = " * ";
         String tableName = " product ";
@@ -565,19 +602,19 @@ public class Inventory extends javax.swing.JInternalFrame {
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PurchaseORSell.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 con.close();
                 pstm.close();
                 rs.close();
             } catch (SQLException ex) {
-                Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PurchaseORSell.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_productIdComboBoxActionPerformed
 
-    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+    private void buysaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buysaveButtonActionPerformed
 
         if (productIdComboBox.getSelectedIndex() > 0) {
             if (!purchaseqtyTextField.getText().equals("")) {
@@ -586,7 +623,8 @@ public class Inventory extends javax.swing.JInternalFrame {
                         if (!pDetailsTextArea.getText().equals("")) {
 
                             try {
-                                String productId = (String) productIdComboBox.getSelectedItem();
+                                String[] comboBox1 = productIdComboBox.getSelectedItem().toString().split("~");
+                                String productId = comboBox1[0];
                                 String qty = purchaseqtyTextField.getText();
                                 String details = pDetailsTextArea.getText();
                                 String employeeName = (String) purchaseByComboBox.getSelectedItem();
@@ -624,19 +662,20 @@ public class Inventory extends javax.swing.JInternalFrame {
                                         DefaultTableModel model = (DefaultTableModel) productTable.getModel();
                                         model.setRowCount(0);
                                         Update_table();
+                                        clearAll();
                                     }
                                 } else {
                                     JOptionPane.showMessageDialog(null, "Product Not Inserted!");
                                 }
                             } catch (SQLException ex) {
-                                Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(PurchaseORSell.class.getName()).log(Level.SEVERE, null, ex);
                             } finally {
                                 try {
                                     con.close();
                                     pstm.close();
                                     rs.close();
                                 } catch (SQLException ex) {
-                                    Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, ex);
+                                    Logger.getLogger(PurchaseORSell.class.getName()).log(Level.SEVERE, null, ex);
                                 }
                             }
                         } else {
@@ -654,7 +693,7 @@ public class Inventory extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Select Product Id");
         }
-    }//GEN-LAST:event_saveButtonActionPerformed
+    }//GEN-LAST:event_buysaveButtonActionPerformed
 
     private void sellsaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sellsaveButtonActionPerformed
 
@@ -701,12 +740,13 @@ public class Inventory extends javax.swing.JInternalFrame {
                                     DefaultTableModel model = (DefaultTableModel) productTable.getModel();
                                     model.setRowCount(0);
                                     Update_table();
+                                    clearAll();
                                 }
                             } else {
                                 JOptionPane.showMessageDialog(null, "Product Not Inserted!");
                             }
                         } catch (SQLException ex) {
-                            Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(PurchaseORSell.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     } else {
                         JOptionPane.showMessageDialog(null, "Insert Details Field");
@@ -727,9 +767,34 @@ public class Inventory extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_purchaseByComboBoxActionPerformed
 
+    private void purchaseqtyTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_purchaseqtyTextFieldKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_purchaseqtyTextFieldKeyTyped
+
+    private void purchaseamountTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_purchaseamountTextFieldKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_purchaseamountTextFieldKeyTyped
+
+    private void sellqtyTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sellqtyTextFieldKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_sellqtyTextFieldKeyTyped
+    private boolean isNumber(char ch) {
+        return ch >= '0' && ch <= '9';
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel amountLabel;
+    private javax.swing.JButton buysaveButton;
     private javax.swing.JTextField instoreTextField;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -757,7 +822,6 @@ public class Inventory extends javax.swing.JInternalFrame {
     private javax.swing.JLabel purchaseselllabel;
     private javax.swing.JLabel qtyLabel;
     private javax.swing.JTextArea sDetailsTextArea;
-    private javax.swing.JButton saveButton;
     private javax.swing.JComboBox<String> sellByComboBox;
     private javax.swing.JLabel sellByLabel;
     private javax.swing.JLabel sellDetailsLabel;

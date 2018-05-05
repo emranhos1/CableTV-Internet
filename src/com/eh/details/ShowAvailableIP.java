@@ -76,6 +76,7 @@ public class ShowAvailableIP extends javax.swing.JFrame {
 
         ipLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ipLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ipLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/IP.png"))); // NOI18N
         ipLabel.setText("Available IP");
         ipLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -109,7 +110,7 @@ public class ShowAvailableIP extends javax.swing.JFrame {
                 .addComponent(ipLabel)
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();

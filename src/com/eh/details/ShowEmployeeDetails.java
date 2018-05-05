@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Md. Emran Hossain
@@ -14,6 +15,7 @@ import javax.swing.JOptionPane;
 public class ShowEmployeeDetails extends javax.swing.JFrame {
 
     private ImageIcon icon = new ImageIcon("image/SKF1.jpg");
+
     public ShowEmployeeDetails() {
         initComponents();
         setLocationRelativeTo(this);
@@ -71,9 +73,22 @@ public class ShowEmployeeDetails extends javax.swing.JFrame {
         nidLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         nidLabel.setText("NID No :");
 
+        startingsalaryTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                startingsalaryTextFieldKeyTyped(evt);
+            }
+        });
+
         detailsLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         detailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        detailsLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Employee.png"))); // NOI18N
         detailsLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        nidTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nidTextFieldKeyTyped(evt);
+            }
+        });
 
         addressLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         addressLabel.setText("Address :");
@@ -91,6 +106,12 @@ public class ShowEmployeeDetails extends javax.swing.JFrame {
         joindateLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         joindateLabel.setText("Join Date :");
 
+        phoneNoTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                phoneNoTextFieldKeyTyped(evt);
+            }
+        });
+
         startingsalaryLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         startingsalaryLabel.setText("Starting Salary :");
 
@@ -98,6 +119,7 @@ public class ShowEmployeeDetails extends javax.swing.JFrame {
         emailLabel.setText("Email :");
 
         updateButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        updateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Update.png"))); // NOI18N
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,8 +170,8 @@ public class ShowEmployeeDetails extends javax.swing.JFrame {
                                         .addGap(142, 142, 142)
                                         .addComponent(photoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(94, 94, 94)
-                                .addComponent(detailsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(45, 45, 45)
+                                .addComponent(detailsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(302, 302, 302)
                         .addComponent(updateButton)))
@@ -205,7 +227,7 @@ public class ShowEmployeeDetails extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(startingsalaryLabel)
                             .addComponent(startingsalaryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(updateButton)
                 .addGap(35, 35, 35))
         );
@@ -214,7 +236,7 @@ public class ShowEmployeeDetails extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        
+
         try {
             String empId = idTextField.getText();
             String firstName = fnameTextField.getText();
@@ -227,7 +249,7 @@ public class ShowEmployeeDetails extends javax.swing.JFrame {
             String salary = startingsalaryTextField.getText();
 
             String tableName = " employee ";
-            String columnNameANDcolumnValue = " first_name = '" + firstName + "', last_name='" + lastName + "', phone_no = '" + phoneNo + "', email= '" + email + "', nid_no='" + nidId + "', address= '" + address + "', starting_salary = '"+salary+"' ";
+            String columnNameANDcolumnValue = " first_name = '" + firstName + "', last_name='" + lastName + "', phone_no = '" + phoneNo + "', email= '" + email + "', nid_no='" + nidId + "', address= '" + address + "', starting_salary = '" + salary + "' ";
             String whereCondition = " employee_id = '" + empId + "'";
 
             boolean updateEmployee = UpdateQueryDao.updateQueryWithWhereClause(tableName, columnNameANDcolumnValue, whereCondition);
@@ -241,6 +263,30 @@ public class ShowEmployeeDetails extends javax.swing.JFrame {
             Logger.getLogger(AllEmployee.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_updateButtonActionPerformed
+
+    private void phoneNoTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNoTextFieldKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_phoneNoTextFieldKeyTyped
+
+    private void nidTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nidTextFieldKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_nidTextFieldKeyTyped
+
+    private void startingsalaryTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_startingsalaryTextFieldKeyTyped
+        char ch = evt.getKeyChar();
+        if (!isNumber(ch) && ch != '\b') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_startingsalaryTextFieldKeyTyped
+    private boolean isNumber(char ch) {
+        return ch >= '0' && ch <= '9';
+    }
 
     /**
      * @param args the command line arguments
