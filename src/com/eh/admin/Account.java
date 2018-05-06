@@ -17,11 +17,11 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Md. Emran Hossain
  */
-public class Accounts extends javax.swing.JInternalFrame {
+public class Account extends javax.swing.JInternalFrame {
 
-    private SimpleDateFormat dateFormat;
     private Date sdate;
     private Date edate;
+    private SimpleDateFormat dateFormat;
     private String startDate;
     private String endDate;
     static DBConnection db = new DBConnection();
@@ -29,7 +29,7 @@ public class Accounts extends javax.swing.JInternalFrame {
     static ResultSet rs;
     static CallableStatement cs = null;
 
-    public Accounts() {
+    public Account() {
         initComponents();
     }
 
@@ -43,17 +43,14 @@ public class Accounts extends javax.swing.JInternalFrame {
         endDateLabel = new javax.swing.JLabel();
         endDateChooser = new com.toedter.calendar.JDateChooser();
         searchButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         reportTable = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
-        setBorder(null);
         setClosable(true);
-        setTitle("Report");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/report.png"))); // NOI18N
         jLabel1.setText("Accounting");
         jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -64,20 +61,10 @@ public class Accounts extends javax.swing.JInternalFrame {
         endDateLabel.setText("End Date :");
 
         searchButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Search.png"))); // NOI18N
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchButtonActionPerformed(evt);
-            }
-        });
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Print.png"))); // NOI18N
-        jButton1.setText("Print");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
 
@@ -91,21 +78,25 @@ public class Accounts extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(reportTable);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setText("Print");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(325, 325, 325)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(283, 283, 283)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(22, 22, 22)
                                 .addComponent(startDateLabel)
@@ -116,12 +107,16 @@ public class Accounts extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(endDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(searchButton)))
-                        .addGap(0, 44, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2)))
+                                .addComponent(searchButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(228, 228, 228)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 9, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(308, 308, 308)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,7 +134,7 @@ public class Accounts extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -154,13 +149,17 @@ public class Accounts extends javax.swing.JInternalFrame {
                 dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 startDate = dateFormat.format(sdate);
                 endDate = dateFormat.format(edate);
-                System.out.println("Start Date :" + startDate + "\n End Date :" + endDate);
-
+                //                System.out.println("Start Date :" + startDate + "\n End Date :" + endDate);
+                String sType = "";
+                String sIorLoss = "";
+                int iMarker = 0;
+                double dSub_total = 0;
+                double dsIorLoss = 0;
                 try {
                     con = db.myConn();
                     cs = con.prepareCall("{CALL full_blance('" + startDate + "', '" + endDate + "')}");
                     rs = cs.executeQuery();
-                    
+
                     DefaultTableModel model = (DefaultTableModel) reportTable.getModel();
                     model.setRowCount(0);
                     while (rs.next()) {
@@ -171,10 +170,33 @@ public class Accounts extends javax.swing.JInternalFrame {
                         double AMOUNT = rs.getDouble("AMOUNT");
                         String I = rs.getString("i");
 
-                        model.addRow(new Object[]{TYPE, USER_CARD_NUMBER, NAME, ADJUSTED_ADVANCED, AMOUNT, I});
+                        if (!TYPE.equalsIgnoreCase(sType) && iMarker == 0) {
+                            sType = TYPE;
+                            model.addRow(new Object[]{"Details for " + TYPE, null, null, null, null});
+                            iMarker = 1;
+                        } else if (!TYPE.equalsIgnoreCase(sType) && iMarker == 1) {
+                            dsIorLoss += dSub_total;
+                            model.addRow(new Object[]{"Sub-Total for " + sType, null, null, null, dSub_total});
+                            if (!rs.getString("i").equals(sIorLoss)) {
+                                model.addRow(new Object[]{"Total " + sIorLoss.replaceAll("^[\\s\\.\\d]+", ""), null, null, null, dsIorLoss});
+                                model.addRow(new Object[]{null, null, null, null, null});
+                                model.addRow(new Object[]{null, null, null, null, null});
+                                dsIorLoss = 0;
+                            }
+                            model.addRow(new Object[]{"Details for " + TYPE, null, null, null, null});
+                            //                            sType = "";
+                            //                            iMarker = 0;
+                            dSub_total = 0;
+                        }
+                        sType = TYPE;
+                        sIorLoss = I;
+                        dSub_total += rs.getDouble("AMOUNT");
+                        model.addRow(new Object[]{USER_CARD_NUMBER, NAME, ADJUSTED_ADVANCED, AMOUNT, null});
                     }
+                    model.addRow(new Object[]{"Sub-Total for " + sType, null, null, null, dSub_total});
+                    model.addRow(new Object[]{"Total " + sIorLoss.replaceAll("^[\\s\\.\\d]+", ""), null, null, null, dsIorLoss + dSub_total});
                 } catch (SQLException ex) {
-                    Logger.getLogger(Accounts.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             } else {
@@ -189,7 +211,7 @@ public class Accounts extends javax.swing.JInternalFrame {
         try {
             reportTable.print();
         } catch (PrinterException ex) {
-            Logger.getLogger(Accounts.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

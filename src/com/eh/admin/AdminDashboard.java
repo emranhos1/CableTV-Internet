@@ -65,10 +65,9 @@ public class AdminDashboard extends javax.swing.JFrame {
         );
         DesktopPanelLayout.setVerticalGroup(
             DesktopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 748, Short.MAX_VALUE)
+            .addGap(0, 752, Short.MAX_VALUE)
         );
 
-        HomeMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/home.png"))); // NOI18N
         HomeMenu.setText("Home");
         HomeMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         HomeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -78,11 +77,9 @@ public class AdminDashboard extends javax.swing.JFrame {
         });
         jMenuBar1.add(HomeMenu);
 
-        EmpMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/employee.png"))); // NOI18N
         EmpMenu.setText("Employee");
         EmpMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        addEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/add-employee.png"))); // NOI18N
         addEmployee.setText("Add Employee");
         addEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +88,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         });
         EmpMenu.add(addEmployee);
 
-        searchEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Search-employee.png"))); // NOI18N
         searchEmp.setText("Search Employee");
         searchEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,11 +98,9 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         jMenuBar1.add(EmpMenu);
 
-        ConMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/connection.png"))); // NOI18N
         ConMenu.setText("Connection");
         ConMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        newCableConnection.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/new-Cable.png"))); // NOI18N
         newCableConnection.setText("New Cable Connection");
         newCableConnection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +109,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         });
         ConMenu.add(newCableConnection);
 
-        allCableConnection.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/all-Cable.png"))); // NOI18N
         allCableConnection.setText("All Cable Connection");
         allCableConnection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +117,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         });
         ConMenu.add(allCableConnection);
 
-        newInternetConnectionMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/new-Internet.png"))); // NOI18N
         newInternetConnectionMenuItem.setText("New Internet Connection");
         newInternetConnectionMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +125,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         });
         ConMenu.add(newInternetConnectionMenuItem);
 
-        allInternetConnection.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/all-Internet.png"))); // NOI18N
         allInternetConnection.setText("All Internet Connection");
         allInternetConnection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +133,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         });
         ConMenu.add(allInternetConnection);
 
-        AllCloseConnection.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/closeConnection.png"))); // NOI18N
         AllCloseConnection.setText("All Close Connection");
         AllCloseConnection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,11 +143,9 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         jMenuBar1.add(ConMenu);
 
-        MACIPMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/ip.png"))); // NOI18N
         MACIPMenu.setText("MAC/IP");
         MACIPMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        addMacIp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/ip.png"))); // NOI18N
         addMacIp.setText("Add Mac IP");
         addMacIp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,7 +156,6 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         jMenuBar1.add(MACIPMenu);
 
-        advanceMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/advance.png"))); // NOI18N
         advanceMenu.setText("Advance");
         advanceMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         advanceMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -178,11 +165,9 @@ public class AdminDashboard extends javax.swing.JFrame {
         });
         jMenuBar1.add(advanceMenu);
 
-        PayrollMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/payroll.png"))); // NOI18N
         PayrollMenu.setText("Payroll");
         PayrollMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        EmpSalaryMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/employee-salary.png"))); // NOI18N
         EmpSalaryMenuItem.setText("Employee Salary");
         EmpSalaryMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,7 +176,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         });
         PayrollMenu.add(EmpSalaryMenuItem);
 
-        cableConnectionBillMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/cable-Bill.png"))); // NOI18N
         cableConnectionBillMenuItem.setText("Cable Connection Bill");
         cableConnectionBillMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,7 +184,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         });
         PayrollMenu.add(cableConnectionBillMenuItem);
 
-        internatconnectionBillMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/internet-bill.png"))); // NOI18N
         internatconnectionBillMenuItem.setText("Internat Connection Bill");
         internatconnectionBillMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,7 +194,6 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         jMenuBar1.add(PayrollMenu);
 
-        ReportMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/report.png"))); // NOI18N
         ReportMenu.setText("Report");
         ReportMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ReportMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -221,11 +203,9 @@ public class AdminDashboard extends javax.swing.JFrame {
         });
         jMenuBar1.add(ReportMenu);
 
-        inventoryMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/inventory.png"))); // NOI18N
         inventoryMenu.setText("Inventory");
         inventoryMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Add-product.png"))); // NOI18N
         jMenuItem1.setText("Add Product");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,7 +214,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         });
         inventoryMenu.add(jMenuItem1);
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/purchase-Sell.png"))); // NOI18N
         jMenuItem2.setText("Purchase OR Sell");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,7 +222,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         });
         inventoryMenu.add(jMenuItem2);
 
-        otherIncomeMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Income.png"))); // NOI18N
         otherIncomeMenuItem.setText("Other Income");
         otherIncomeMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,7 +230,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         });
         inventoryMenu.add(otherIncomeMenuItem);
 
-        otherCostMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/cost.png"))); // NOI18N
         otherCostMenuItem.setText("Other Cost");
         otherCostMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -263,7 +240,6 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         jMenuBar1.add(inventoryMenu);
 
-        LogoutMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/logout.png"))); // NOI18N
         LogoutMenu.setText("Logout");
         LogoutMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         LogoutMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -409,7 +385,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_otherIncomeMenuItemActionPerformed
 
     private void ReportMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReportMenuMouseClicked
-        Accounts a = new Accounts();
+        Account a = new Account();
         DesktopPanel.add(a);
         a.setVisible(true);
     }//GEN-LAST:event_ReportMenuMouseClicked

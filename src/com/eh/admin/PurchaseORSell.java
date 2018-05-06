@@ -186,7 +186,6 @@ public class PurchaseORSell extends javax.swing.JInternalFrame {
 
         purchaseselllabel.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         purchaseselllabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        purchaseselllabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Purchase-Sell.png"))); // NOI18N
         purchaseselllabel.setText("Purchase / Sell");
         purchaseselllabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -220,7 +219,6 @@ public class PurchaseORSell extends javax.swing.JInternalFrame {
         });
 
         buysaveButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        buysaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Buy.png"))); // NOI18N
         buysaveButton.setText("Buy Product");
         buysaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -331,7 +329,6 @@ public class PurchaseORSell extends javax.swing.JInternalFrame {
         });
 
         sellsaveButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        sellsaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Sell.png"))); // NOI18N
         sellsaveButton.setText("Sell Product");
         sellsaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -391,7 +388,7 @@ public class PurchaseORSell extends javax.swing.JInternalFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sellDetailsLabel)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(sellsaveButton)
                 .addContainerGap())
         );

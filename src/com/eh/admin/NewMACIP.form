@@ -124,7 +124,7 @@
                   </Group>
                   <Component id="row1" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="67" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="79" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -144,9 +144,6 @@
           <Font name="Tahoma" size="24" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/com/eh/admin/image/IP.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Add MAC / IP Address"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
@@ -172,9 +169,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/com/eh/admin/image/Save.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Add MAC"/>
       </Properties>
       <Events>
@@ -185,9 +179,6 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/com/eh/admin/image/Save.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Add IP"/>
       </Properties>
@@ -200,9 +191,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/com/eh/admin/image/Available.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Available MAC"/>
       </Properties>
       <Events>
@@ -213,9 +201,6 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/com/eh/admin/image/Available.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Available IP"/>
       </Properties>

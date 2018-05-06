@@ -77,7 +77,6 @@ public class ShowAvailableMAC extends javax.swing.JFrame {
 
         macLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         macLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        macLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/IP.png"))); // NOI18N
         macLabel.setText("Available MAC");
         macLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -111,7 +110,7 @@ public class ShowAvailableMAC extends javax.swing.JFrame {
                 .addComponent(macLabel)
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();

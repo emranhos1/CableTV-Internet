@@ -69,7 +69,6 @@ public class Login extends javax.swing.JFrame {
         passwordLabel.setText("Password :");
 
         login.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Login.png"))); // NOI18N
         login.setText("Sign In");
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +77,6 @@ public class Login extends javax.swing.JFrame {
         });
 
         reset.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        reset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Reset.png"))); // NOI18N
         reset.setText("Reset");
         reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,7 +136,7 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(reset))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(massege, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);

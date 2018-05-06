@@ -87,7 +87,6 @@ public class BillGenerateCable extends javax.swing.JFrame {
 
         generateBillLabel.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         generateBillLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        generateBillLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Generate-bill.png"))); // NOI18N
         generateBillLabel.setText("Generate Bill For Cable");
         generateBillLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -111,7 +110,6 @@ public class BillGenerateCable extends javax.swing.JFrame {
         jScrollPane1.setViewportView(billTextArea);
 
         printButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        printButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Print.png"))); // NOI18N
         printButton.setText("Print");
         printButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

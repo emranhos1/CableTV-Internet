@@ -164,7 +164,6 @@ public class InternetConnectionBill extends javax.swing.JInternalFrame {
 
         detailsLabel.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         detailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        detailsLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Internet-bill.png"))); // NOI18N
         detailsLabel.setText("Internet Connection Bill");
         detailsLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -304,7 +303,6 @@ public class InternetConnectionBill extends javax.swing.JInternalFrame {
         fullPayPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Full Pay", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
         fullPaySaveButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        fullPaySaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Save.png"))); // NOI18N
         fullPaySaveButton.setText("Paid");
         fullPaySaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -313,7 +311,6 @@ public class InternetConnectionBill extends javax.swing.JInternalFrame {
         });
 
         fullClearButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        fullClearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Reset.png"))); // NOI18N
         fullClearButton.setText("Clear");
         fullClearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -441,7 +438,6 @@ public class InternetConnectionBill extends javax.swing.JInternalFrame {
         );
 
         generateBillButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        generateBillButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Generate-bill.png"))); // NOI18N
         generateBillButton.setText("Generate Bill");
         generateBillButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -490,7 +486,7 @@ public class InternetConnectionBill extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(36, Short.MAX_VALUE)
                 .addComponent(detailsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

@@ -124,7 +124,6 @@ public class NewMACIP extends javax.swing.JInternalFrame {
 
         macipLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         macipLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        macipLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/IP.png"))); // NOI18N
         macipLabel.setText("Add MAC / IP Address");
         macipLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -132,7 +131,6 @@ public class NewMACIP extends javax.swing.JInternalFrame {
         IPAddress.setText("IP Address :");
 
         macButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        macButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Save.png"))); // NOI18N
         macButton.setText("Add MAC");
         macButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +139,6 @@ public class NewMACIP extends javax.swing.JInternalFrame {
         });
 
         ipButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        ipButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Save.png"))); // NOI18N
         ipButton.setText("Add IP");
         ipButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,7 +147,6 @@ public class NewMACIP extends javax.swing.JInternalFrame {
         });
 
         availableMACButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        availableMACButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Available.png"))); // NOI18N
         availableMACButton.setText("Available MAC");
         availableMACButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,7 +155,6 @@ public class NewMACIP extends javax.swing.JInternalFrame {
         });
 
         availableIPButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        availableIPButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Available.png"))); // NOI18N
         availableIPButton1.setText("Available IP");
         availableIPButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,7 +276,7 @@ public class NewMACIP extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(row1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 67, Short.MAX_VALUE))
+                .addGap(0, 79, Short.MAX_VALUE))
         );
 
         pack();

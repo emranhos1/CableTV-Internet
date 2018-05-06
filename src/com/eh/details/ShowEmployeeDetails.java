@@ -81,7 +81,6 @@ public class ShowEmployeeDetails extends javax.swing.JFrame {
 
         detailsLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         detailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        detailsLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Employee.png"))); // NOI18N
         detailsLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         nidTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -119,7 +118,6 @@ public class ShowEmployeeDetails extends javax.swing.JFrame {
         emailLabel.setText("Email :");
 
         updateButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        updateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Update.png"))); // NOI18N
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,7 +225,7 @@ public class ShowEmployeeDetails extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(startingsalaryLabel)
                             .addComponent(startingsalaryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(updateButton)
                 .addGap(35, 35, 35))
         );

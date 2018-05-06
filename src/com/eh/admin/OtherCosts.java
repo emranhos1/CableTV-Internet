@@ -31,7 +31,6 @@ public class OtherCosts extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Cost.png"))); // NOI18N
         jLabel1.setText("Other Costs");
         jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -58,7 +57,6 @@ public class OtherCosts extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(detailsTextArea);
 
         saveButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Save.png"))); // NOI18N
         saveButton.setText("Save");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +65,6 @@ public class OtherCosts extends javax.swing.JInternalFrame {
         });
 
         resetButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        resetButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Reset.png"))); // NOI18N
         resetButton.setText("Reset");
         resetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +121,7 @@ public class OtherCosts extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveButton)
                     .addComponent(resetButton))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         pack();

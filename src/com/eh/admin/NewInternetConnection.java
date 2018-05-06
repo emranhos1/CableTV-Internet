@@ -198,7 +198,6 @@ public class NewInternetConnection extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/New-Internet.png"))); // NOI18N
         jLabel1.setText("New Internet Connection");
         jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -284,7 +283,6 @@ public class NewInternetConnection extends javax.swing.JInternalFrame {
         phoneNoLabel.setText("Phone No :");
 
         save.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Save.png"))); // NOI18N
         save.setText("Add New Internat Connection");
         save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -296,7 +294,6 @@ public class NewInternetConnection extends javax.swing.JInternalFrame {
         emailLabel.setText("Email :");
 
         reset.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        reset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Reset.png"))); // NOI18N
         reset.setText("Reset");
         reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -392,7 +389,7 @@ public class NewInternetConnection extends javax.swing.JInternalFrame {
                         .addComponent(save)
                         .addGap(18, 18, 18)
                         .addComponent(reset)))
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -469,7 +466,7 @@ public class NewInternetConnection extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(save)
                     .addComponent(reset))
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         pack();

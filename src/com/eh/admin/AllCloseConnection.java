@@ -200,7 +200,6 @@ public class AllCloseConnection extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/CloseConnection.png"))); // NOI18N
         jLabel1.setText("All Close Connection");
         jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -255,7 +254,6 @@ public class AllCloseConnection extends javax.swing.JInternalFrame {
         cablePhoneNoTextField.setEditable(false);
 
         cableReconnectionButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        cableReconnectionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Re-connect.png"))); // NOI18N
         cableReconnectionButton.setText("Reconnect");
         cableReconnectionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -289,7 +287,6 @@ public class AllCloseConnection extends javax.swing.JInternalFrame {
         jLabel9.setText("Customer Phone :");
 
         internetReconnectionButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        internetReconnectionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Re-connect.png"))); // NOI18N
         internetReconnectionButton.setText("Reconnect");
         internetReconnectionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -397,7 +394,7 @@ public class AllCloseConnection extends javax.swing.JInternalFrame {
                     .addComponent(internetReconnectionButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );

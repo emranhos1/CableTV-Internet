@@ -94,7 +94,6 @@ public class ShowInternatCustomerDetails extends javax.swing.JFrame {
 
         internetDetailsLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         internetDetailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        internetDetailsLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/All-Internet.png"))); // NOI18N
         internetDetailsLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         monthlyPayLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -133,7 +132,6 @@ public class ShowInternatCustomerDetails extends javax.swing.JFrame {
         arealLabel.setText("Area :");
 
         updateButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        updateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Update.png"))); // NOI18N
         updateButton.setText("Update");
         updateButton.setToolTipText("");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +144,6 @@ public class ShowInternatCustomerDetails extends javax.swing.JFrame {
         connectionFeeLabel.setText("Connection Fee :");
 
         closeConnectionButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        closeConnectionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/CloseConnection.png"))); // NOI18N
         closeConnectionButton.setText("Close Connection");
         closeConnectionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

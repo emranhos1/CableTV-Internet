@@ -86,7 +86,6 @@ public class EmployeeAdvance extends javax.swing.JInternalFrame {
 
         advanceLabel.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         advanceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        advanceLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Advance.png"))); // NOI18N
         advanceLabel.setText("Advance");
         advanceLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -115,7 +114,6 @@ public class EmployeeAdvance extends javax.swing.JInternalFrame {
         });
 
         submitButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        submitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Save.png"))); // NOI18N
         submitButton.setText("Submit");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,7 +189,7 @@ public class EmployeeAdvance extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(submitButton)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();

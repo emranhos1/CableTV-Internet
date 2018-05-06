@@ -186,7 +186,6 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
 
         allCableConnection.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         allCableConnection.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        allCableConnection.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/All-Cable.png"))); // NOI18N
         allCableConnection.setText("All Cable Connection");
         allCableConnection.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -231,7 +230,6 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
         firstNameLabel.setText("First Name :");
 
         Update.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Update.png"))); // NOI18N
         Update.setText("Update");
         Update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,7 +238,6 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
         });
 
         reset.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        reset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Reset.png"))); // NOI18N
         reset.setText("Reset");
         reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,7 +249,6 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
         lastNameLabel.setText("Last Name :");
 
         addCableConnection.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        addCableConnection.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/New-Internet.png"))); // NOI18N
         addCableConnection.setText("New Connection");
         addCableConnection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -300,7 +296,6 @@ public class AllCableConnection extends javax.swing.JInternalFrame {
         monthlyPayLabel.setText("Monthly Pay :");
 
         closeConnection.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        closeConnection.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/CloseConnection.png"))); // NOI18N
         closeConnection.setText("Close Connection");
         closeConnection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

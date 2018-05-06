@@ -40,7 +40,6 @@ public class AddProduct extends javax.swing.JInternalFrame {
 
         addProductLabel.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         addProductLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        addProductLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Add-product.png"))); // NOI18N
         addProductLabel.setText("Add Product");
         addProductLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -51,7 +50,6 @@ public class AddProduct extends javax.swing.JInternalFrame {
         productBrandLabel.setText("Product Brand :");
 
         saveButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/save.png"))); // NOI18N
         saveButton.setText("Save");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,7 +58,6 @@ public class AddProduct extends javax.swing.JInternalFrame {
         });
 
         resetButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        resetButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Reset.png"))); // NOI18N
         resetButton.setText("Reset");
         resetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +120,7 @@ public class AddProduct extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveButton)
                     .addComponent(resetButton))
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         pack();

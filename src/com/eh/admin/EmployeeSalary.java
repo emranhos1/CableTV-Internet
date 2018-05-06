@@ -117,7 +117,6 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
         setTitle("Employee Salary");
 
         printButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        printButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Print.png"))); // NOI18N
         printButton.setText("Print");
         printButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,7 +145,6 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
         EmployeeNameLabel.setText("Employee Name :");
 
         totalButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        totalButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Total.png"))); // NOI18N
         totalButton.setText("Total");
         totalButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,7 +217,6 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Employee-salary.png"))); // NOI18N
         jLabel2.setText("Employee Salary");
         jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -229,7 +226,6 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(formatedTextArea);
 
         addButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Add-record.png"))); // NOI18N
         addButton.setText("Add Record");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,7 +234,6 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
         });
 
         clearButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        clearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Reset.png"))); // NOI18N
         clearButton.setText("Clear");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,7 +242,6 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
         });
 
         saveButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Save.png"))); // NOI18N
         saveButton.setText("Save Data");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -383,7 +377,7 @@ public class EmployeeSalary extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(printButton)
                             .addComponent(saveButton))))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();

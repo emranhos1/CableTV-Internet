@@ -63,7 +63,6 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
 
         cableDetailsLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cableDetailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        cableDetailsLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/All-Cable.png"))); // NOI18N
         cableDetailsLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         phoneText.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -148,7 +147,6 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
         jScrollPane2.setViewportView(commentsArea);
 
         updateButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        updateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Update.png"))); // NOI18N
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +155,6 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
         });
 
         closeConnectionButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        closeConnectionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/CloseConnection.png"))); // NOI18N
         closeConnectionButton.setText("Close Connection");
         closeConnectionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -255,7 +252,7 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(arealLabel)
                             .addComponent(areaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 8, Short.MAX_VALUE)
+                        .addGap(0, 10, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(connectionFeeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(connectionFeeLabel))

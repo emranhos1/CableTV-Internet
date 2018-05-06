@@ -88,7 +88,6 @@ public class BillGenerateInternet extends javax.swing.JFrame {
 
         generateBillLabel.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         generateBillLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        generateBillLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Generate-bill.png"))); // NOI18N
         generateBillLabel.setText("Generate Bill For Internet");
         generateBillLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -112,7 +111,6 @@ public class BillGenerateInternet extends javax.swing.JFrame {
         jScrollPane1.setViewportView(billTextArea);
 
         printButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        printButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Print.png"))); // NOI18N
         printButton.setText("Print");
         printButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,7 +161,7 @@ public class BillGenerateInternet extends javax.swing.JFrame {
                     .addComponent(monthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(printButton)
                 .addGap(22, 22, 22))
         );

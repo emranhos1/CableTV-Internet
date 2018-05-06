@@ -96,7 +96,6 @@ public class AddEmployee extends javax.swing.JInternalFrame {
         setTitle("Add Employee");
 
         chooseFile.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        chooseFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/photo.png"))); // NOI18N
         chooseFile.setText("Select Photo :");
         chooseFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +150,6 @@ public class AddEmployee extends javax.swing.JInternalFrame {
         });
 
         save.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/save.png"))); // NOI18N
         save.setText("Save");
         save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +158,6 @@ public class AddEmployee extends javax.swing.JInternalFrame {
         });
 
         reset.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        reset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/Reset.png"))); // NOI18N
         reset.setText("Reset");
         reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,7 +167,6 @@ public class AddEmployee extends javax.swing.JInternalFrame {
 
         jLabel.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/eh/admin/image/add-employee.png"))); // NOI18N
         jLabel.setText("Add Employee");
         jLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -224,7 +220,7 @@ public class AddEmployee extends javax.swing.JInternalFrame {
                     .addComponent(lName, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(areaComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(nidText)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                     .addComponent(salaryText)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(yesRadioButton)
