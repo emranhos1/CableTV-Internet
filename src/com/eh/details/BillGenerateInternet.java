@@ -35,39 +35,10 @@ public class BillGenerateInternet extends javax.swing.JFrame {
     private ImageIcon icon = new ImageIcon("image/SKF1.jpg");
     public BillGenerateInternet() {
         initComponents();
-        loadUserIdCombo();
         setLocationRelativeTo(this);
         setResizable(false);
         setTitle("SKF");
         setIconImage(icon.getImage());
-    }
-
-    public void loadUserIdCombo() {
-
-        String columnName = " user_id ";
-        String tableName = " customer_internet ";
-        String whereCondition = " is_active = '1' ORDER BY user_id ASC ";
-        try {
-            conrs = SelectQueryDao.selectQueryWithWhereClause(columnName, tableName, whereCondition);
-            con = conrs.getCon();
-            pstm = conrs.getPstm();
-            rs = conrs.getRs();
-
-            while (rs.next()) {
-                String userNumber = rs.getString("user_id");
-                userIdComboBox.addItem(userNumber);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(BillGenerateInternet.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                con.close();
-                pstm.close();
-                rs.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(BillGenerateInternet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
     }
 
     @SuppressWarnings("unchecked")
@@ -75,13 +46,13 @@ public class BillGenerateInternet extends javax.swing.JFrame {
     private void initComponents() {
 
         generateBillLabel = new javax.swing.JLabel();
-        userIdlabel = new javax.swing.JLabel();
-        userIdComboBox = new javax.swing.JComboBox<>();
         monthComboBox = new javax.swing.JComboBox<>();
         monthlabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         billTextArea = new javax.swing.JTextArea();
         printButton = new javax.swing.JButton();
+        PhoneNolabel = new javax.swing.JLabel();
+        phoneNoTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Internet BIll");
@@ -90,11 +61,6 @@ public class BillGenerateInternet extends javax.swing.JFrame {
         generateBillLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         generateBillLabel.setText("Generate Bill For Internet");
         generateBillLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        userIdlabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        userIdlabel.setText("User Id :");
-
-        userIdComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select One" }));
 
         monthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select One", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
         monthComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +84,9 @@ public class BillGenerateInternet extends javax.swing.JFrame {
             }
         });
 
+        PhoneNolabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        PhoneNolabel.setText("Phone No :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -133,11 +102,11 @@ public class BillGenerateInternet extends javax.swing.JFrame {
                                 .addGap(266, 266, 266)
                                 .addComponent(printButton))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addComponent(userIdlabel)
+                                .addGap(44, 44, 44)
+                                .addComponent(PhoneNolabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(userIdComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(phoneNoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(monthlabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(monthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -155,10 +124,11 @@ public class BillGenerateInternet extends javax.swing.JFrame {
                 .addComponent(generateBillLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userIdlabel)
-                    .addComponent(userIdComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(monthlabel)
-                    .addComponent(monthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(monthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(PhoneNolabel)
+                        .addComponent(phoneNoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
@@ -171,15 +141,15 @@ public class BillGenerateInternet extends javax.swing.JFrame {
 
     private void monthComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthComboBoxActionPerformed
 
-        if (userIdComboBox.getSelectedIndex() > 0) {
+        if (!phoneNoTextField.getText().equals("")) {
 
-            String userId = userIdComboBox.getSelectedItem().toString();
+            String phoneno = phoneNoTextField.getText();
             String month = monthComboBox.getSelectedItem().toString();
 
             String columnName = " ci.user_id, ci.first_name, ci.last_name, ci.phone_no, ci.email, ci.area, ci.address, ci.connection_date, ci.monthly_pay, ci.connection_fee, ci.billing_type_id, ma.address macaddress, ia.address ipaddress ";
             String tableName = " customer_internet ci left join mac_address ma ";
             String onCondition = " (ci.mac_address_id = ma.mac_address_id) left join ip_address ia on (ci.ip_address_id = ia.ip_address_id) ";
-            String whereCondition = " user_id = '" + userId + "'";
+            String whereCondition = " phone_no = '" + phoneno + "'";
 
             try {
                 conrs = SelectQueryDao.selectQueryWithJoinWhere(columnName, tableName, onCondition, whereCondition);
@@ -272,13 +242,13 @@ public class BillGenerateInternet extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel PhoneNolabel;
     private javax.swing.JTextArea billTextArea;
     private javax.swing.JLabel generateBillLabel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> monthComboBox;
     private javax.swing.JLabel monthlabel;
+    private javax.swing.JTextField phoneNoTextField;
     private javax.swing.JButton printButton;
-    private javax.swing.JComboBox<String> userIdComboBox;
-    private javax.swing.JLabel userIdlabel;
     // End of variables declaration//GEN-END:variables
 }

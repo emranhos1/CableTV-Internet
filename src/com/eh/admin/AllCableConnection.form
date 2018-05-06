@@ -26,90 +26,78 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="closeConnection" max="32767" attributes="0"/>
-                          <Component id="addCableConnection" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="Update" max="32767" attributes="0"/>
-                          <Component id="reset" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="usercardnumberlabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="firstNameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lastNameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="connectionFeeLabel" min="-2" max="-2" attributes="0"/>
-                                          <Component id="arealLabel" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="usercardnumberlabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="emailLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="phoneLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="firstNameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lastNameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="arealLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="connectionFeeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="firstNameText" max="32767" attributes="0"/>
                           <Component id="emailText" max="32767" attributes="0"/>
                           <Component id="areaText" alignment="0" max="32767" attributes="0"/>
                           <Component id="userCardComboBox" alignment="0" pref="190" max="32767" attributes="0"/>
                           <Component id="phoneText" alignment="0" max="32767" attributes="0"/>
                           <Component id="lastNameText" alignment="0" max="32767" attributes="0"/>
-                          <Component id="firstNameText" alignment="0" max="32767" attributes="0"/>
                           <Component id="connectionFeeText" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="monthlyPayLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="billingTypeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="conDateLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="closeConnection" max="32767" attributes="0"/>
+                          <Component id="addCableConnection" min="-2" pref="153" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="connectionDateText" alignment="0" pref="199" max="32767" attributes="0"/>
-                          <Component id="monthlyPayText" alignment="0" max="32767" attributes="0"/>
-                          <Component id="billingTypeText" alignment="1" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="Update" max="32767" attributes="0"/>
+                          <Component id="reset" min="-2" pref="83" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="addressLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="189" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="addressLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" min="-2" pref="189" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="17" max="32767" attributes="0"/>
+                              <Component id="conDateLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="commentLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" pref="202" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="billingTypeLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="monthlyPayLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="commentLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="searchwithPhoneLabel" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane2" alignment="1" pref="189" max="32767" attributes="0"/>
+                          <Component id="connectionDateText" alignment="1" max="32767" attributes="0"/>
+                          <Component id="monthlyPayText" max="32767" attributes="0"/>
+                          <Component id="billingTypeText" alignment="0" max="32767" attributes="0"/>
+                          <Component id="searchPhoneTextField" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -133,65 +121,71 @@
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Component id="allCableConnection" min="-2" pref="56" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="userCardComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="addressLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="usercardnumberlabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="firstNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="firstNameText" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lastNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lastNameText" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jScrollPane1" alignment="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="phoneLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="phoneText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="connectionDateText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="conDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="emailLabel" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="monthlyPayLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="monthlyPayText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="conDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="connectionDateText" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="emailText" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="monthlyPayLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="monthlyPayText" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="emailText" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="emailLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="areaText" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="arealLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="billingTypeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="billingTypeText" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="billingTypeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="billingTypeText" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="arealLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="areaText" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="connectionFeeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="connectionFeeText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="connectionFeeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="connectionFeeText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="commentLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -204,10 +198,14 @@
                           <Component id="reset" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="commentLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jScrollPane2" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="12" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="searchPhoneTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="searchwithPhoneLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane3" min="-2" pref="142" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
           </Group>
@@ -473,6 +471,9 @@
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="billingTypeTextActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="arealLabel">
       <Properties>
@@ -538,6 +539,19 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closeConnectionActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="searchPhoneTextField">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="searchPhoneTextFieldKeyReleased"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="searchwithPhoneLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Search Phone :"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

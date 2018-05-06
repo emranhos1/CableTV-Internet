@@ -1,6 +1,8 @@
 package com.eh.details;
 
+import static com.eh.admin.AdminDashboard.DesktopPanel;
 import com.eh.admin.AllEmployee;
+import com.eh.admin.EmployeeSalary;
 import com.eh.dao.UpdateQueryDao;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -171,7 +173,7 @@ public class ShowEmployeeDetails extends javax.swing.JFrame {
                                 .addGap(45, 45, 45)
                                 .addComponent(detailsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(302, 302, 302)
+                        .addGap(299, 299, 299)
                         .addComponent(updateButton)))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
@@ -225,9 +227,9 @@ public class ShowEmployeeDetails extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(startingsalaryLabel)
                             .addComponent(startingsalaryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(updateButton)
-                .addGap(35, 35, 35))
+                .addGap(57, 57, 57))
         );
 
         pack();

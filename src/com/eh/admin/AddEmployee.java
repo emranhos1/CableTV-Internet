@@ -348,7 +348,7 @@ public class AddEmployee extends javax.swing.JInternalFrame {
                                         if (yesRadioButton.isSelected() || noRadioButton.isSelected()) {
 
                                             if (!photo.equals("")) {
-                                                UPLOAD_LOCATION = "E:/Programming/1. Office project/Project/Cable Desktop app/JinanItCableOM/file/";
+                                                UPLOAD_LOCATION = "../file/";
 
                                                 newFileName = UUID.randomUUID() + fileName;
                                                 uploadLocationPath = new File(UPLOAD_LOCATION);

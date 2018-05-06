@@ -34,39 +34,10 @@ public class BillGenerateCable extends javax.swing.JFrame {
     private ImageIcon icon = new ImageIcon("image/SKF1.jpg");
     public BillGenerateCable() {
         initComponents();
-        loadUserCardIdCombo();
         setLocationRelativeTo(this);
         setResizable(false);
         setTitle("SKF");
         setIconImage(icon.getImage());
-    }
-
-    public void loadUserCardIdCombo() {
-
-        String columnName = " user_card_number ";
-        String tableName = " customer_cable ";
-        String whereCondition = " is_active = '1' ORDER BY user_card_number ASC ";
-        try {
-            conrs = SelectQueryDao.selectQueryWithWhereClause(columnName, tableName, whereCondition);
-            con = conrs.getCon();
-            pstm = conrs.getPstm();
-            rs = conrs.getRs();
-
-            while (rs.next()) {
-                String userNumber = rs.getString("user_card_number");
-                userCardNoComboBox.addItem(userNumber);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(BillGenerateCable.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                con.close();
-                pstm.close();
-                rs.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(BillGenerateCable.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
     }
 
     @SuppressWarnings("unchecked")
@@ -74,13 +45,13 @@ public class BillGenerateCable extends javax.swing.JFrame {
     private void initComponents() {
 
         generateBillLabel = new javax.swing.JLabel();
-        userCardNolabel = new javax.swing.JLabel();
-        userCardNoComboBox = new javax.swing.JComboBox<>();
+        PhoneNolabel = new javax.swing.JLabel();
         monthlabel = new javax.swing.JLabel();
         monthComboBox = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         billTextArea = new javax.swing.JTextArea();
         printButton = new javax.swing.JButton();
+        phoneNoTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cable Bill");
@@ -90,10 +61,8 @@ public class BillGenerateCable extends javax.swing.JFrame {
         generateBillLabel.setText("Generate Bill For Cable");
         generateBillLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        userCardNolabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        userCardNolabel.setText("User Card No :");
-
-        userCardNoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select One" }));
+        PhoneNolabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        PhoneNolabel.setText("Phone No :");
 
         monthlabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         monthlabel.setText("Month :");
@@ -130,10 +99,10 @@ public class BillGenerateCable extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(39, 39, 39)
-                                .addComponent(userCardNolabel)
+                                .addComponent(PhoneNolabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(userCardNoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(phoneNoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(monthlabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(monthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -143,7 +112,7 @@ public class BillGenerateCable extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(116, 116, 116)
                                 .addComponent(generateBillLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 78, Short.MAX_VALUE)))
+                        .addGap(0, 97, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -153,10 +122,10 @@ public class BillGenerateCable extends javax.swing.JFrame {
                 .addComponent(generateBillLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userCardNolabel)
-                    .addComponent(userCardNoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PhoneNolabel)
                     .addComponent(monthlabel)
-                    .addComponent(monthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(monthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(phoneNoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -169,14 +138,14 @@ public class BillGenerateCable extends javax.swing.JFrame {
 
     private void monthComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthComboBoxActionPerformed
 
-        if (userCardNoComboBox.getSelectedIndex() > 0) {
+        if (!phoneNoTextField.getText().equals("")) {
 
-            String userCardNo = userCardNoComboBox.getSelectedItem().toString();
+            String phone_no = phoneNoTextField.getText();
             String month = monthComboBox.getSelectedItem().toString();
 
             String columnName = " * ";
             String tableName = " customer_cable ";
-            String whereCondition = " user_card_number = '" + userCardNo + "'";
+            String whereCondition = " phone_no = '" + phone_no + "'";
 
             try {
                 conrs = SelectQueryDao.selectQueryWithWhereClause(columnName, tableName, whereCondition);
@@ -203,7 +172,7 @@ public class BillGenerateCable extends javax.swing.JFrame {
             billTextArea.setText(null);
             billTextArea.append("\t\t BILL \n\n"
                     + "Customer Name :\t\t" + firstName +" "+ lastName + "\n"
-                    + "User Number :\t\t\t" + userCardNo + "\n"
+                    + "User Number :\t\t\t" + userNumber + "\n"
                     + "\n===================================================\n"
                     + "Phone No :\t\t\t" + phoneNo + "\n\n"
                     + "Email :\t\t\t" + email + "\n\n"
@@ -215,7 +184,7 @@ public class BillGenerateCable extends javax.swing.JFrame {
                     + "\n====================================================\n"
                     + "Total :\t\t\t" + monthlyPay + "\n\n");
         } else {
-            JOptionPane.showMessageDialog(null, "Select User Card Id");
+            JOptionPane.showMessageDialog(null, "Give Phone No");
             monthComboBox.setSelectedIndex(0);
         }
     }//GEN-LAST:event_monthComboBoxActionPerformed
@@ -266,13 +235,13 @@ public class BillGenerateCable extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel PhoneNolabel;
     private javax.swing.JTextArea billTextArea;
     private javax.swing.JLabel generateBillLabel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> monthComboBox;
     private javax.swing.JLabel monthlabel;
+    private javax.swing.JTextField phoneNoTextField;
     private javax.swing.JButton printButton;
-    private javax.swing.JComboBox<String> userCardNoComboBox;
-    private javax.swing.JLabel userCardNolabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -72,7 +72,9 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="225" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
+                      <Component id="genareteBillButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="updateButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="closeConnectionButton" min="-2" max="-2" attributes="0"/>
@@ -129,7 +131,7 @@
                           <Component id="arealLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="areaText" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="connectionFeeText" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="connectionFeeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -138,6 +140,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="updateButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="closeConnectionButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="genareteBillButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
                   </Group>
@@ -236,9 +239,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="connectionFeeText">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="connectionFeeTextActionPerformed"/>
       </Events>
@@ -281,9 +281,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="connectionDateText">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="connectionDateTextActionPerformed"/>
       </Events>
@@ -358,9 +355,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="monthlypayText">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="monthlypayTextActionPerformed"/>
       </Events>
@@ -397,7 +391,7 @@
     <Component class="javax.swing.JButton" name="updateButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="1"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Update"/>
       </Properties>
@@ -408,12 +402,23 @@
     <Component class="javax.swing.JButton" name="closeConnectionButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="1"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Close Connection"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closeConnectionButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="genareteBillButton">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Genarete Bill"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="genareteBillButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

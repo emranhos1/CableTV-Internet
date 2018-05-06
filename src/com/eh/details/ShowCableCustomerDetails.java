@@ -58,6 +58,7 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
         commentsArea = new javax.swing.JTextArea();
         updateButton = new javax.swing.JButton();
         closeConnectionButton = new javax.swing.JButton();
+        genareteBillButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,7 +90,6 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
         addressLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         addressLabel.setText("Address :");
 
-        connectionFeeText.setEditable(false);
         connectionFeeText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 connectionFeeTextActionPerformed(evt);
@@ -106,7 +106,6 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
         conDateLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         conDateLabel.setText("Connection Date :");
 
-        connectionDateText.setEditable(false);
         connectionDateText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 connectionDateTextActionPerformed(evt);
@@ -132,7 +131,6 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
         monthlyPayLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         monthlyPayLabel.setText("Monthly Pay :");
 
-        monthlypayText.setEditable(false);
         monthlypayText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 monthlypayTextActionPerformed(evt);
@@ -146,7 +144,7 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
         commentsArea.setRows(5);
         jScrollPane2.setViewportView(commentsArea);
 
-        updateButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        updateButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,11 +152,19 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
             }
         });
 
-        closeConnectionButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        closeConnectionButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         closeConnectionButton.setText("Close Connection");
         closeConnectionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 closeConnectionButtonActionPerformed(evt);
+            }
+        });
+
+        genareteBillButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        genareteBillButton.setText("Genarete Bill");
+        genareteBillButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                genareteBillButtonActionPerformed(evt);
             }
         });
 
@@ -207,7 +213,9 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(225, 225, 225)
+                        .addGap(142, 142, 142)
+                        .addComponent(genareteBillButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(updateButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(closeConnectionButton))
@@ -252,14 +260,15 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(arealLabel)
                             .addComponent(areaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 10, Short.MAX_VALUE)
+                        .addGap(0, 16, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(connectionFeeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(connectionFeeLabel))
                         .addGap(91, 91, 91)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(updateButton)
-                            .addComponent(closeConnectionButton))
+                            .addComponent(closeConnectionButton)
+                            .addComponent(genareteBillButton))
                         .addGap(139, 139, 139))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -307,12 +316,15 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
             String phoneNo = phoneText.getText();
             String email = emailText.getText();
             String area = areaText.getText();
+            String connectionFee = connectionFeeText.getText();
+            String connectionDate = connectionDateText.getText();
+            String monthlypay = monthlypayText.getText();
             String address = addressArea.getText();
             String comment = commentsArea.getText();
 
             String tableName = " customer_cable ";
 
-            String columnNameANDcolumnValue = " first_name = '" + firstName + "', last_name='" + lastName + "', user_card_number = '" + cardno + "', phone_no = '" + phoneNo + "', email= '" + email + "', area= '" + area + "', address= '" + address + "', comments='" + comment + "' ";
+            String columnNameANDcolumnValue = " first_name = '" + firstName + "', last_name='" + lastName + "', user_card_number = '" + cardno + "', phone_no = '" + phoneNo + "', email= '" + email + "', area= '" + area + "', address= '" + address + "', comments='" + comment + "', connection_fee ='"+connectionFee+"', connection_date = '"+connectionDate+"', monthly_pay = '"+monthlypay+"' ";
             String whereCondition = " user_card_number = '" + cardno + "'";
 
             boolean updateCableConnection = UpdateQueryDao.updateQueryWithWhereClause(tableName, columnNameANDcolumnValue, whereCondition);
@@ -361,6 +373,12 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_phoneTextKeyTyped
+
+    private void genareteBillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genareteBillButtonActionPerformed
+        
+        BillGenerateCable bgc = new BillGenerateCable();
+        bgc.setVisible(true);
+    }//GEN-LAST:event_genareteBillButtonActionPerformed
     private boolean isNumber(char ch) {
         return ch >= '0' && ch <= '9';
     }
@@ -417,6 +435,7 @@ public class ShowCableCustomerDetails extends javax.swing.JFrame {
     public javax.swing.JTextField emailText;
     private javax.swing.JLabel firstNameLabel;
     public javax.swing.JTextField firstNameText;
+    private javax.swing.JButton genareteBillButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lastNameLabel;
